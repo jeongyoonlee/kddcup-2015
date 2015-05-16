@@ -1,0 +1,21 @@
+#--------------------------------------------------------------------------
+# feature1: categorical feature cutoff = 10
+#--------------------------------------------------------------------------
+include Makefile
+
+FEATURE_NAME := feature1
+
+FEATURE_TRN := $(DIR_FEATURE)/$(FEATURE_NAME).trn.sps
+FEATURE_TST := $(DIR_FEATURE)/$(FEATURE_NAME).tst.sps
+
+FEATURE_TRN_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).trn.log.sps
+FEATURE_TST_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).tst.log.sps
+
+$(FEATURE_TRN): $(FEATURE_TRN_LOG) $(LABEL_TRN)
+	python ./src/agg_count.py --in-file $< \
+                              --out-file $@ \
+                              --label-file $(lastword $^)
+
+$(FEATURE_TST): $(FEATURE_TST_LOG)
+	python ./src/agg_count.py --in-file $< \
+                              --out-file $@
