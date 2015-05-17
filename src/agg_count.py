@@ -13,7 +13,7 @@ logging.basicConfig(format='%(asctime)s   %(levelname)s   %(message)s',
 def _write_target_features(f, feature_dict, label):
     row = []
     for k in sorted(feature_dict.keys()):
-        row.append('{}:{}'.format(k, feature_dict[k]))
+        row.append('{}:{}'.format(k, np.log2(1 + feature_dict[k])))
 
     f.write('{} {}\n'.format(label, ' '.join(row)))
 

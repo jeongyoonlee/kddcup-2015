@@ -31,6 +31,9 @@ SUBMISSION_SAMPLE := $(DIR_DATA)/sampleSubmission.csv
 
 ID_TST := $(DIR_DATA)/id.tst.txt
 
+$(DIRS):
+	mkdir -p $@
+
 $(ID_TST) : $(SUBMISSION_SAMPLE)
 	cut -d, -f1 $< > $@
 

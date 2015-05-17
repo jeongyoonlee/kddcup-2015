@@ -1,0 +1,28 @@
+#--------------------------------------------------------------------------
+# feature3: feature1 + user, course, days before last day, weeks before last
+# day + log2(1 + x) transformation
+#--------------------------------------------------------------------------
+include Makefile
+
+FEATURE_NAME := feature3
+
+FEATURE_TRN := $(DIR_FEATURE)/$(FEATURE_NAME).trn.sps
+FEATURE_TST := $(DIR_FEATURE)/$(FEATURE_NAME).tst.sps
+
+FEATURE_TRN_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).trn.log.sps
+FEATURE_TST_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).tst.log.sps
+
+$(FEATURE_TRN_LOG) $(FEATURE_TST_LOG): $(DATA_TRN_LOG) $(DATA_TST_LOG) | $(DIR_FEATURE)
+	python src/generate_feature3.py --train-file $< \
+                                    --test-file $(lastword $^) \
+                                    --train-feature-file $(FEATURE_TRN_LOG) \
+                                    --test-feature-file $(FEATURE_TST_LOG)
+
+$(FEATURE_TRN): $(FEATURE_TRN_LOG) $(LABEL_TRN)
+	python ./src/agg_count.py --in-file $< \
+                              --out-file $@ \
+                              --label-file $(lastword $^)
+
+$(FEATURE_TST): $(FEATURE_TST_LOG)
+	python ./src/agg_count.py --in-file $< \
+                              --out-file $@
