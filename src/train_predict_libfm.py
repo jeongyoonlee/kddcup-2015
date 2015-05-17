@@ -57,7 +57,7 @@ def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
         os.remove(valid_test_file)
         os.remove(valid_predict_file)
 
-    logging.info('Log Loss = {:.4f}'.format(AUC(y, p)))
+    logging.info('AUC = {:.4f}'.format(AUC(y, p)))
     np.savetxt(predict_valid_file, p, fmt='%.6f')
 
     logging.info('Retraining with 100% data...')

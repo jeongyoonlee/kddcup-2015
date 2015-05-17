@@ -1,4 +1,4 @@
-include Makefile.feature.feature1
+include Makefile.feature.feature2
 
 C := 1
 ALGO_NAME := lr_$(C)

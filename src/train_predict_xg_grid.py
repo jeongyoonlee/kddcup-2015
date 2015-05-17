@@ -26,7 +26,7 @@ def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
     X, y = load_svmlight_file(train_file)
     X_tst, _ = load_svmlight_file(test_file)
 
-    xg = xgb.XGBClassifier(subsample=0.5, colsample_bytree=0.8)
+    xg = xgb.XGBClassifier(subsample=0.5, colsample_bytree=0.8, nthread=6)
     param = {'learning_rate': [.01, .05, .1], 'max_depth': [4, 8, 12],
              'n_estimators': [100, 200, 400]}
     cv = StratifiedKFold(y, n_folds=n_fold, shuffle=True, random_state=2015)

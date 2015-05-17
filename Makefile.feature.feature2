@@ -1,0 +1,9 @@
+#--------------------------------------------------------------------------
+# feature2: log2(1 + feature1)
+#--------------------------------------------------------------------------
+include Makefile
+
+FEATURE_NAME := feature2
+
+FEATURE_TRN := $(DIR_FEATURE)/$(FEATURE_NAME).trn.sps
+FEATURE_TST := $(DIR_FEATURE)/$(FEATURE_NAME).tst.sps
