@@ -1,7 +1,7 @@
 include Makefile.feature.feature1
 
-N = 1
-DEPTH = 12
+N = 400
+DEPTH = 8
 LRATE = 0.05
 ALGO_NAME := xg_$(N)_$(DEPTH)_$(LRATE)
 MODEL_NAME := $(ALGO_NAME)_$(FEATURE_NAME)

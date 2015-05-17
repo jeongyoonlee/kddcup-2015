@@ -2,7 +2,7 @@
 
 from __future__ import division
 from sklearn.cross_validation import StratifiedKFold
-from sklearn.metrics import mean_squared_error as MSE
+from sklearn.metrics import roc_auc_score as AUC
 
 import argparse
 import logging
@@ -16,7 +16,7 @@ import xgboost as xgb
 
 
 def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
-                  n_est=100, depth=4, lrate=.1, n_fold=2):
+                  n_est=100, depth=4, lrate=.1, n_fold=5):
 
     feature_name = os.path.basename(train_file)[:-4]
     logging.basicConfig(format='%(asctime)s   %(levelname)s   %(message)s',
@@ -42,7 +42,7 @@ def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
         clf.fit(X[i_trn], y[i_trn])
         p_val[i_val] = clf.predict_proba(X[i_val])[:, 1]
 
-    logging.info('MSE = {:.4f}'.format(MSE(y, p_val)))
+    logging.info('AUC = {:.4f}'.format(AUC(y, p_val)))
 
     logging.info('Retraining with 100% data...')
     clf.fit(X, y)
