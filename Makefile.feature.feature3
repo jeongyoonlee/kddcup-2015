@@ -1,6 +1,15 @@
 #--------------------------------------------------------------------------
 # feature3: feature1 + user, course, days before last day, weeks before last
-# day + log2(1 + x) transformation
+#           day + log2(1 + x) transformation - min_obs=100
+#
+#   username --> 20113 features
+#   course_id --> 39 features
+#   source --> 2 features
+#   event --> 7 features
+#   object --> 3554 features
+#   days_before_last_date --> 30 features
+#   weeks_before_last_date --> 4 features
+#   INFO   finished (647.54 sec elapsed)
 #--------------------------------------------------------------------------
 include Makefile
 
