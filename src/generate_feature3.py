@@ -3,6 +3,7 @@
 from __future__ import division
 from sklearn.datasets import dump_svmlight_file
 
+import argparse
 import logging
 import numpy as np
 import pandas as pd
@@ -25,11 +26,12 @@ def generate_feature(train_file, test_file, train_feature_file,
     trn.time = pd.to_datetime(trn.time)
     tst.time = pd.to_datetime(tst.time)
 
+    df = pd.concat([trn, tst], axis=0)
+
     last_date = df[['course_id', 'time']].groupby('course_id',
-                                                 as_index=False).max()
+                                                  as_index=False).max()
     last_date.columns = ['course_id', 'last_date']
 
-    df = pd.concat([trn, tst], axis=0)
     df = pd.merge(df, last_date, on='course_id', how='left')
 
     df['days_before_last_date'] = (df.last_date - df.time).apply(lambda x: pd.Timedelta(x).days)
