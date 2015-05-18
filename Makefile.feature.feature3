@@ -18,6 +18,9 @@ FEATURE_NAME := feature3
 FEATURE_TRN := $(DIR_FEATURE)/$(FEATURE_NAME).trn.sps
 FEATURE_TST := $(DIR_FEATURE)/$(FEATURE_NAME).tst.sps
 
+FEATURE_TRN_FFM := $(DIR_FEATURE)/$(FEATURE_NAME).trn.ffm
+FEATURE_TST_FFM := $(DIR_FEATURE)/$(FEATURE_NAME).tst.ffm
+
 FEATURE_TRN_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).trn.log.sps
 FEATURE_TST_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).tst.log.sps
 
@@ -35,3 +38,6 @@ $(FEATURE_TRN): $(FEATURE_TRN_LOG) $(LABEL_TRN)
 $(FEATURE_TST): $(FEATURE_TST_LOG)
 	python ./src/agg_count.py --in-file $< \
                               --out-file $@
+
+%.ffm: %.sps
+	python src/svm_to_ffm.py --svm-file $< --ffm-file $@
