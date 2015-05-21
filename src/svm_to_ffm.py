@@ -9,7 +9,8 @@ import time
 logging.basicConfig(format='%(asctime)s   %(levelname)s   %(message)s',
                     level=logging.DEBUG)
 
-FEATURE_PER_FIELD = {'feature3': [20113, 39, 2, 7, 3554, 30, 4]}
+FEATURE_PER_FIELD = {'feature3': [20113, 39, 2, 7, 3554, 30, 4],
+                     'feature4': [55907, 39, 2, 7, 5268, 30, 4]}
 
 def svm_to_ffm(svm_file, ffm_file, feature_name):
 
@@ -51,9 +52,11 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--svm-file', '-s', required=True, dest='svm_file')
     parser.add_argument('--ffm-file', '-f', required=True, dest='ffm_file')
+    parser.add_argument('--feature-name', '-n', required=True,
+                        dest='feature_name')
 
     args = parser.parse_args()
 
     start = time.time()
-    svm_to_ffm(args.svm_file, args.ffm_file, 'feature3')
+    svm_to_ffm(args.svm_file, args.ffm_file, args.feature_name)
     logging.info('finished ({:.2f} sec elapsed)'.format(time.time() - start))
