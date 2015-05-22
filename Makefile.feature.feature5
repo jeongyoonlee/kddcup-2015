@@ -1,19 +1,24 @@
 #--------------------------------------------------------------------------
-# feature4: feature3 + last month - min_obs=10
+# feature5: feature4 + object info - min_obs=10, nan_as_var=True
 #
 #   username --> 55907 features
 #   course_id --> 39 features
 #   source --> 2 features
 #   event --> 7 features
 #   object --> 5268 features
+#   category --> 6 features
+#   n_children --> 7 features
+#   obj_days_before_last_date --> 13 features
 #   days_before_last_date --> 30 features
 #   weeks_before_last_date --> 4 features
 #   last_month --> 7 features
+#   obj_10_days_after_last_date --> 2 features
+#   
 #   INFO   finished (647.54 sec elapsed)
 #--------------------------------------------------------------------------
 include Makefile
 
-FEATURE_NAME := feature4
+FEATURE_NAME := feature5
 
 FEATURE_TRN := $(DIR_FEATURE)/$(FEATURE_NAME).trn.sps
 FEATURE_TST := $(DIR_FEATURE)/$(FEATURE_NAME).tst.sps
@@ -24,9 +29,10 @@ FEATURE_TST_FFM := $(DIR_FEATURE)/$(FEATURE_NAME).tst.ffm
 FEATURE_TRN_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).trn.log.sps
 FEATURE_TST_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).tst.log.sps
 
-$(FEATURE_TRN_LOG) $(FEATURE_TST_LOG): $(DATA_TRN_LOG) $(DATA_TST_LOG) | $(DIR_FEATURE)
-	python src/generate_feature4.py --train-file $< \
+$(FEATURE_TRN_LOG) $(FEATURE_TST_LOG): $(DATA_TRN_LOG) $(DATA_OBJ_UNIQ) $(DATA_TST_LOG) | $(DIR_FEATURE)
+	python src/generate_feature5.py --train-file $< \
                                     --test-file $(lastword $^) \
+                                    --object-file $(word 2, $^) \
                                     --train-feature-file $(FEATURE_TRN_LOG) \
                                     --test-feature-file $(FEATURE_TST_LOG)
 

@@ -41,7 +41,7 @@ def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
         logging.info('Training model #{}...'.format(i))
         clf.fit(X[i_trn], y[i_trn])
         p_val[i_val] = clf.predict_proba(X[i_val])[:, 1]
-        logging.info('AUC TRN = {:.4f}'.format(AUC(y[i_trn], p_val[i_trn])))
+        logging.info('AUC TRN = {:.4f}'.format(AUC(y[i_trn], clf.predict_proba(X[i_trn])[:, 1])))
         logging.info('AUC VAL = {:.4f}'.format(AUC(y[i_val], p_val[i_val])))
 
     logging.info('AUC = {:.4f}'.format(AUC(y, p_val)))

@@ -1,6 +1,6 @@
-include Makefile.feature.feature2
+include Makefile.feature.feature5
 
-C := 1
+C := 0.01
 ALGO_NAME := lr_$(C)
 MODEL_NAME := $(ALGO_NAME)_$(FEATURE_NAME)
 
