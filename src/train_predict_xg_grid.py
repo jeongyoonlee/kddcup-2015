@@ -2,7 +2,6 @@
 
 from __future__ import division
 from sklearn.cross_validation import StratifiedKFold
-from sklearn.datasets import load_svmlight_file
 from sklearn.grid_search import GridSearchCV
 
 import argparse
@@ -10,6 +9,8 @@ import logging
 import numpy as np
 import os
 import time
+
+from kaggler.data_io import load_data
 
 import xgboost as xgb
 
@@ -23,8 +24,8 @@ def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
                         filename='xg_grid_{}.log'.format(feature_name))
 
     logging.info('Loading training and test data...')
-    X, y = load_svmlight_file(train_file)
-    X_tst, _ = load_svmlight_file(test_file)
+    X, y = load_data(train_file)
+    X_tst, _ = load_data(test_file)
 
     xg = xgb.XGBClassifier(subsample=0.5, colsample_bytree=0.8, nthread=6)
     param = {'learning_rate': [.01, .05, .1], 'max_depth': [4, 8, 12],

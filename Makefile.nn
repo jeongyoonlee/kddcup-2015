@@ -1,15 +1,15 @@
 include Makefile.feature.feature5
 
-N = 25
+N = 20
 HIDDEN = 16
-LRATE = 0.001
+LRATE = 0.005
 ALGO_NAME := nn_$(N)_$(HIDDEN)_$(LRATE)
 MODEL_NAME := $(ALGO_NAME)_$(FEATURE_NAME)
 
 METRIC_VAL := $(DIR_METRIC)/$(MODEL_NAME).val.txt
 
-PREDICT_VAL := $(DIR_VAL)/$(MODEL_NAME).val.csv
-PREDICT_TST := $(DIR_TST)/$(MODEL_NAME).tst.csv
+PREDICT_VAL := $(DIR_VAL)/$(MODEL_NAME).val.yht
+PREDICT_TST := $(DIR_TST)/$(MODEL_NAME).tst.yht
 
 SUBMISSION_TST := $(DIR_TST)/$(MODEL_NAME).sub.csv
 SUBMISSION_TST_GZ := $(DIR_TST)/$(MODEL_NAME).sub.csv.gz

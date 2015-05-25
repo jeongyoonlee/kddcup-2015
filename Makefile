@@ -32,11 +32,20 @@ SUBMISSION_SAMPLE := $(DIR_DATA)/sampleSubmission.csv
 
 ID_TST := $(DIR_DATA)/id.tst.txt
 
+Y_TRN := $(DIR_DATA)/y.trn.yht
+Y_TST := $(DIR_DATA)/y.tst.yht
+
 $(DIRS):
 	mkdir -p $@
 
 $(ID_TST): $(SUBMISSION_SAMPLE)
 	cut -d, -f1 $< > $@
+
+$(Y_TRN): $(LABEL_TRN)
+	cut -d, -f2 $< > $@
+
+$(Y_TST): $(SUBMISSION_SAMPLE)
+	cut -d, -f2 $< > $@
 
 $(DATA_OBJ_UNIQ): $(DATA_OBJ)
 	tail -n +2 $< | sort | uniq > $@

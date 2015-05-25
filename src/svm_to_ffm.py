@@ -11,7 +11,8 @@ logging.basicConfig(format='%(asctime)s   %(levelname)s   %(message)s',
 
 FEATURE_PER_FIELD = {'feature3': [20113, 39, 2, 7, 3554, 30, 4],
                      'feature4': [55907, 39, 2, 7, 5268, 30, 4, 7],
-                     'feature5': [55907, 39, 2, 7, 5268, 6, 7, 13, 30, 4, 7, 2]}
+                     'feature5': [55907, 39, 2, 7, 5268, 6, 7, 13, 30, 4, 7, 2],
+                     'feature6': [20113, 39, 2, 7, 3554, 6, 7, 10, 30, 4, 7, 2]}
 
 def svm_to_ffm(svm_file, ffm_file, feature_name):
 
