@@ -1,7 +1,7 @@
-include Makefile.feature.feature3
+include Makefile.feature.feature5
 
 N = 20
-DIM = 12
+DIM = 20
 LRATE = 0.01
 ALGO_NAME := ffm_$(N)_$(DIM)_$(LRATE)
 MODEL_NAME := $(ALGO_NAME)_$(FEATURE_NAME)
@@ -21,8 +21,10 @@ validation: $(METRIC_VAL)
 submission: $(SUBMISSION_TST)
 retrain: clean_$(ALGO_NAME) submission
 
-$(PREDICT_TST) $(PREDICT_VAL): $(FEATURE_TRN_FFM) $(FEATURE_TST_FFM) \
-                               $(FEATURE_TRN) | $(DIR_VAL) $(DIR_TST)
+$(PREDICT_TST) $(PREDICT_VAL) $(MODEL_TRN) : $(FEATURE_TRN_FFM) \
+                                             $(FEATURE_TST_FFM) \
+                                             $(FEATURE_TRN) | $(DIR_VAL) \
+                                             $(DIR_TST) $(DIR_MODEL)
 	./src/train_predict_ffm.py --train-file $< \
                                   --test-file $(word 2, $^) \
                                   --train-svm-file $(lastword $^) \

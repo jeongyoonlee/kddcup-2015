@@ -58,7 +58,8 @@ def generate_feature(train_file, test_file, object_file, train_feature_file,
 
     df['obj_10_days_after_last_date'] = df.obj_days_before_last_date.apply(lambda x: 1 if x < 0 and x >= -10 else 0)
     df.obj_days_before_last_date = df.obj_days_before_last_date.apply(
-        lambda x: np.sign(x) * int(np.log2(1 + np.sign(x) * x)) if ~pd.isnull(x) else x
+        lambda x: np.sign(x) * int(np.log2(1 + np.sign(x) * x)) \
+                  if ~pd.isnull(x) else x
             )
 
     df.drop(['time', 'last_date'], axis=1, inplace=True)
