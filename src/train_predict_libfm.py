@@ -3,7 +3,7 @@
 from __future__ import division
 from datetime import datetime
 from sklearn.cross_validation import StratifiedKFold
-from sklearn.datasets import dump_svmlight_file, load_svmlight_file
+from sklearn.datasets import dump_svmlight_file
 from sklearn.metrics import roc_auc_score as AUC
 
 import argparse
@@ -12,6 +12,8 @@ import numpy as np
 import os
 import subprocess
 import time
+
+from kaggler.data_io import load_data
 
 
 def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
@@ -25,7 +27,7 @@ def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
                                                       ))
 
     logging.info('Loading training data')
-    X, y = load_svmlight_file(train_file)
+    X, y = load_data(train_file)
 
     cv = StratifiedKFold(y, n_folds=n_fold, shuffle=True, random_state=2015)
 
