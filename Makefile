@@ -18,6 +18,8 @@ DIR_TST := $(DIR_BUILD)/tst
 
 DATA_TRN_LOG := $(DIR_DATA)/log_train.csv
 DATA_TST_LOG := $(DIR_DATA)/log_test.csv
+DATA_TRN_LOG_V2 := $(DIR_DATA)/log_train_source_event.csv
+DATA_TST_LOG_V2 := $(DIR_DATA)/log_test_source_event.csv
 DATA_TRN_ENR := $(DIR_DATA)/enrollment_train.csv
 DATA_TST_ENR := $(DIR_DATA)/enrollment_test.csv
 DATA_OBJ := $(DIR_DATA)/object.csv
@@ -49,6 +51,16 @@ $(Y_TST): $(SUBMISSION_SAMPLE)
 
 $(DATA_OBJ_UNIQ): $(DATA_OBJ)
 	tail -n +2 $< | sort | uniq > $@
+
+$(DATA_TRN_LOG_V2): $(DATA_TRN_LOG)
+	sed 's/source,/source_/g' $< > $@
+	sed 's/browser,/browser_/g' $< > $@
+	sed 's/server,/server_/g' $< > $@
+
+$(DATA_TST_LOG_V2): $(DATA_TST_LOG)
+	sed 's/source,/source_/g' $< > $@
+	sed 's/browser,/browser_/g' $< > $@
+	sed 's/server,/server_/g' $< > $@
 
 # cleanup
 clean::

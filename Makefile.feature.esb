@@ -1,15 +1,17 @@
 include Makefile
 
-FEATURE_NAME := esb8
+FEATURE_NAME := esb10
 
-BASE_MODELS := xg_400_4_0.05_feature3 \
+BASE_MODELS := xg_400_4_0.05_feature6 \
+               ffm_20_20_0.01_feature6 \
+               xg_400_4_0.05_feature3 \
                ffm_20_20_0.01_feature3 \
-               ffm_20_20_0.01_feature5 \
-               xg_400_4_0.05_feature5 \
-               libfm_100_16_0.01_feature3 \
+               libfm_100_8_0.01_feature3 \
+               libfm_100_8_0.01_feature6 \
+               nn_20_16_0.005_feature3 \
                nn_20_16_0.005_feature5 \
                lr_0.01_feature3 \
-               lr_0.01_feature5
+               lr_0.01_feature6
 
 PREDICTS_TRN := $(foreach m, $(BASE_MODELS), $(DIR_VAL)/$(m).val.yht)
 PREDICTS_TST := $(foreach m, $(BASE_MODELS), $(DIR_TST)/$(m).tst.yht)
