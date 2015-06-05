@@ -3,6 +3,8 @@ APT_PKGS := python-pip python-dev
 BREW_PKGS := --python
 PIP_PKGS := numpy scipy pandas scikit-learn
 
+SED := gsed
+
 # directories
 DIR_DATA := data
 DIR_BUILD := build
@@ -53,14 +55,14 @@ $(DATA_OBJ_UNIQ): $(DATA_OBJ)
 	tail -n +2 $< | sort | uniq > $@
 
 $(DATA_TRN_LOG_V2): $(DATA_TRN_LOG)
-	sed 's/source,/source_/g' $< > $@
-	sed 's/browser,/browser_/g' $< > $@
-	sed 's/server,/server_/g' $< > $@
+	$(SED) 's/source,/source_/g' $< > $@
+	$(SED) -i 's/browser,/browser_/g' $@
+	$(SED) -i 's/server,/server_/g' $@
 
 $(DATA_TST_LOG_V2): $(DATA_TST_LOG)
-	sed 's/source,/source_/g' $< > $@
-	sed 's/browser,/browser_/g' $< > $@
-	sed 's/server,/server_/g' $< > $@
+	$(SED) 's/source,/source_/g' $< > $@
+	$(SED) -i 's/browser,/browser_/g' $@
+	$(SED) -i 's/server,/server_/g' $@
 
 # cleanup
 clean::

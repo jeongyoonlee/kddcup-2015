@@ -1,0 +1,33 @@
+#--------------------------------------------------------------------------
+# feature_tam: feature6 + days_after_obj_date
+#
+#   username --> 20113 features
+#   course_id --> 39 features
+#   source --> 2 features
+#   event --> 7 features
+#   object --> 3554 features
+#   category --> 6 features
+#   n_children --> 7 features
+#   obj_days_before_last_date --> 10 features
+#   days_before_last_date --> 30 features
+#   weeks_before_last_date --> 4 features
+#   last_month --> 7 features
+#   days_after_obj_date --> 12 features
+#   obj_10_days_after_last_date --> 2 features
+#   
+#   INFO   finished (647.54 sec elapsed)
+#--------------------------------------------------------------------------
+include Makefile
+
+FEATURE_NAME := feature_tam
+
+FEATURE_TRN := $(DIR_FEATURE)/$(FEATURE_NAME).trn.sps
+FEATURE_TST := $(DIR_FEATURE)/$(FEATURE_NAME).tst.sps
+
+FEATURE_TRN_FFM := $(DIR_FEATURE)/$(FEATURE_NAME).trn.ffm
+FEATURE_TST_FFM := $(DIR_FEATURE)/$(FEATURE_NAME).tst.ffm
+
+%.ffm: %.sps
+	python src/svm_to_ffm.py --svm-file $< \
+                             --ffm-file $@ \
+                             --feature-name $(FEATURE_NAME)

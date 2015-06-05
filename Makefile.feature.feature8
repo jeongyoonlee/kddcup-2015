@@ -1,6 +1,7 @@
 #--------------------------------------------------------------------------
-# feature8: feature6 + days_after_obj_date
+# feature8: feature7 - username (set every username to 1)
 #
+#   username --> 1 feature
 #   course_id --> 39 features
 #   source --> 2 features
 #   event --> 7 features
