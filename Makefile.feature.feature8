@@ -1,6 +1,8 @@
 #--------------------------------------------------------------------------
 # feature8: feature7 - username (set every username to 1)
 #
+# feature8.trn.log.sps
+#
 #   username --> 1 feature
 #   course_id --> 39 features
 #   source --> 2 features
@@ -13,6 +15,20 @@
 #   weeks_before_last_date --> 4 features
 #   last_month --> 7 features
 #   days_after_obj_date --> 12 features
+#   obj_10_days_after_last_date --> 2 features
+#
+# feature8.usr.log.sps
+#
+#   course_id --> 39 features
+#   source_event --> 10 features
+#   ...
+#   obj_10_days_after_last_date --> 2 features
+#
+# feature8.crs.log.sps
+#
+#   usrname --> 20113 features
+#   source_event --> 10 features
+#   ...
 #   obj_10_days_after_last_date --> 2 features
 #--------------------------------------------------------------------------
 include Makefile
@@ -27,6 +43,28 @@ FEATURE_TST_FFM := $(DIR_FEATURE)/$(FEATURE_NAME).tst.ffm
 
 FEATURE_TRN_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).trn.log.sps
 FEATURE_TST_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).tst.log.sps
+
+FEATURE_USR_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).usr.log.sps
+FEATURE_CRS_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).crs.log.sps
+FEATURE_OBJ_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).obj.log.sps
+
+$(FEATURE_OBJ_LOG): $(DATA_TRN_LOG_V2) $(DATA_OBJ_UNIQ) $(DATA_TST_LOG_V2) | $(DIR_FEATURE)
+	python src/generate_feature8_object.py --train-file $< \
+                                    --test-file $(lastword $^) \
+                                    --object-file $(word 2, $^) \
+                                    --feature-file $(FEATURE_OBJ_LOG)
+
+$(FEATURE_CRS_LOG): $(DATA_TRN_LOG_V2) $(DATA_OBJ_UNIQ) $(DATA_TST_LOG_V2) | $(DIR_FEATURE)
+	python src/generate_feature8_course.py --train-file $< \
+                                    --test-file $(lastword $^) \
+                                    --object-file $(word 2, $^) \
+                                    --feature-file $(FEATURE_CRS_LOG)
+
+$(FEATURE_USR_LOG): $(DATA_TRN_LOG_V2) $(DATA_OBJ_UNIQ) $(DATA_TST_LOG_V2) | $(DIR_FEATURE)
+	python src/generate_feature8_user.py --train-file $< \
+                                    --test-file $(lastword $^) \
+                                    --object-file $(word 2, $^) \
+                                    --feature-file $(FEATURE_USR_LOG)
 
 $(FEATURE_TRN_LOG) $(FEATURE_TST_LOG): $(DATA_TRN_LOG_V2) $(DATA_OBJ_UNIQ) $(DATA_TST_LOG_V2) | $(DIR_FEATURE)
 	python src/generate_feature8.py --train-file $< \

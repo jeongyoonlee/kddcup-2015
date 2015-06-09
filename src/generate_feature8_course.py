@@ -16,8 +16,7 @@ logging.basicConfig(format='%(asctime)s   %(levelname)s   %(message)s',
                     level=logging.DEBUG)
 
 
-def generate_feature(train_file, test_file, object_file, train_feature_file,
-                     test_feature_file):
+def generate_feature(train_file, test_file, object_file, feature_file):
 
     logging.info('loading input data')
     trn = pd.read_csv(train_file)
@@ -66,16 +65,18 @@ def generate_feature(train_file, test_file, object_file, train_feature_file,
         lambda x: np.sign(x) * int(np.log2(1 + np.abs(x))) if ~pd.isnull(x) else x
     )
 
-    df.drop(['time', 'last_date'], axis=1, inplace=True)
-    df.set_index('enrollment_id', inplace=True)
+    df.drop(['enrollment_id', 'time', 'last_date'], axis=1, inplace=True)
+    df.set_index('course_id', inplace=True)
 
     X = encode_categorical_features(df, n=n_trn, min_obs=100, nan_as_var=True)
     X = X.tocsr()
 
-    dump_svmlight_file(X[:n_trn], trn.enrollment_id.values, train_feature_file,
-                       zero_based=False)
-    dump_svmlight_file(X[n_trn:], tst.enrollment_id.values, test_feature_file,
-                       zero_based=False)
+    with open(feature_file, 'w') as f:
+        for i in range(X.shape[0]):
+            x = X[i].toarray().flatten()
+            idx = np.where(x != 0)[0]
+            features = ' '.join(['{}:{}'.format(j + 1, x[j]) for j in idx])
+            f.write('{} {}\n'.format(df.index.values[i], features))
 
 
 if __name__ == '__main__':
@@ -83,17 +84,14 @@ if __name__ == '__main__':
     parser.add_argument('--train-file', required=True, dest='train_file')
     parser.add_argument('--test-file', required=True, dest='test_file')
     parser.add_argument('--object-file', required=True, dest='object_file')
-    parser.add_argument('--train-feature-file', required=True,
-                        dest='train_feature_file')
-    parser.add_argument('--test-feature-file', required=True,
-                        dest='test_feature_file')
+    parser.add_argument('--feature-file', required=True,
+                        dest='feature_file')
 
     args = parser.parse_args()
     start = time.time()
     generate_feature(args.train_file,
                      args.test_file,
                      args.object_file,
-                     args.train_feature_file,
-                     args.test_feature_file)
+                     args.feature_file)
     logging.info('finished ({:.2f} sec elapsed)'.format(time.time() - start))
 
