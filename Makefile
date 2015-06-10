@@ -22,8 +22,8 @@ DATA_TRN_LOG := $(DIR_DATA)/log_train.csv
 DATA_TST_LOG := $(DIR_DATA)/log_test.csv
 DATA_TRN_LOG_V2 := $(DIR_DATA)/log_train_source_event.csv
 DATA_TST_LOG_V2 := $(DIR_DATA)/log_test_source_event.csv
-DATA_TRN_ENR := $(DIR_DATA)/enrollment_train.csv
-DATA_TST_ENR := $(DIR_DATA)/enrollment_test.csv
+DATA_TRN_ENR := $(DIR_DATA)/enrollment_train_log.csv
+DATA_TST_ENR := $(DIR_DATA)/enrollment_test_log.csv
 DATA_OBJ := $(DIR_DATA)/object.csv
 DATA_OBJ_UNIQ := $(DIR_DATA)/object_uniq.csv
 LABEL_TRN := $(DIR_DATA)/truth_train.csv
@@ -38,6 +38,12 @@ ID_TST := $(DIR_DATA)/id.tst.txt
 
 Y_TRN := $(DIR_DATA)/y.trn.yht
 Y_TST := $(DIR_DATA)/y.tst.yht
+
+$(DATA_TST_ENR): $(DATA_TST_LOG_V2)
+	cut -d, -f1-3 $< | sort -n -k1,1 -t, | uniq > $@
+
+$(DATA_TRN_ENR): $(DATA_TRN_LOG_V2)
+	cut -d, -f1-3 $< | sort -n -k1,1 -t, | uniq > $@
 
 $(DIRS):
 	mkdir -p $@

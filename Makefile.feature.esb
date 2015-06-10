@@ -1,8 +1,12 @@
 include Makefile
 
-FEATURE_NAME := esb10
+FEATURE_NAME := esb14
 
-BASE_MODELS := xg_400_4_0.05_feature6 \
+BASE_MODELS := xg_400_4_0.05_feature_tam \
+               xg_600_4_0.05_feature9 \
+               ffm_30_20_0.01_feature_tam \
+               ffm_30_20_0.01_feature9 \
+               xg_400_4_0.05_feature6 \
                ffm_20_20_0.01_feature6 \
                xg_400_4_0.05_feature3 \
                ffm_20_20_0.01_feature3 \
