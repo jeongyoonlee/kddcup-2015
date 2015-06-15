@@ -1,0 +1,9 @@
+#--------------------------------------------------------------------------
+# feature_mj: 
+#--------------------------------------------------------------------------
+include Makefile
+
+FEATURE_NAME := feature_mj
+
+FEATURE_TRN := $(DIR_FEATURE)/$(FEATURE_NAME).trn.sps
+FEATURE_TST := $(DIR_FEATURE)/$(FEATURE_NAME).tst.sps

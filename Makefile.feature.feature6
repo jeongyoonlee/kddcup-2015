@@ -29,7 +29,8 @@ FEATURE_TST_FFM := $(DIR_FEATURE)/$(FEATURE_NAME).tst.ffm
 FEATURE_TRN_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).trn.log.sps
 FEATURE_TST_LOG := $(DIR_FEATURE)/$(FEATURE_NAME).tst.log.sps
 
-$(FEATURE_TRN_LOG) $(FEATURE_TST_LOG): $(DATA_TRN_LOG) $(DATA_OBJ_UNIQ) $(DATA_TST_LOG) | $(DIR_FEATURE)
+$(FEATURE_TRN_LOG) $(FEATURE_TST_LOG): $(DATA_TRN_LOG_ID) $(DATA_OBJ_UNIQ) \
+                                       $(DATA_TST_LOG_ID) | $(DIR_FEATURE)
 	python src/generate_feature6.py --train-file $< \
                                     --test-file $(lastword $^) \
                                     --object-file $(word 2, $^) \
