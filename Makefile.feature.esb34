@@ -1,26 +1,41 @@
 include Makefile
 
-FEATURE_NAME := esb19
+FEATURE_NAME := esb34
 
-BASE_MODELS := xg_600_4_0.05_feature9 \
+BASE_MODELS := xg_400_4_0.05_feature_tam \
+               xg_600_4_0.05_feature9 \
                xg_400_4_0.05_feature6 \
+               xg_400_4_0.05_feature3 \
                xg_400_4_0.05_feature_mj \
                ffm_30_20_0.01_feature_tam \
                ffm_30_20_0.01_feature9 \
                ffm_20_20_0.01_feature6 \
-               ffm_xg_50_4_10_16_0.02_feature_tam \
-               ffm_xg_30_4_10_16_0.02_feature_mj \
+               ffm_20_20_0.01_feature3 \
                libfm_100_4_0.002_feature_tam \
+               libfm_100_4_0.002_feature9 \
+               libfm_100_8_0.01_feature3 \
                libfm_100_8_0.01_feature6 \
+               nn_20_16_0.01_feature9 \
                nn_20_16_0.005_feature3 \
                nn_20_16_0.005_feature5 \
                lr_0.01_feature_tam \
                lr_0.01_feature_mj \
+               lr_0.01_feature9 \
+               lr_0.01_feature3 \
                lr_0.01_feature6 \
                mj_knn_8776 \
                mj_8867 \
                mj_8912 \
-               tam_8992 \
+               mj_8905 \
+               mj_krr_8945 \
+               tam_8979 \
+               tam_8988 \
+               tam_8989 \
+               tam_8987 \
+               tam_8875 \
+               tam_8935 \
+               tam_8991 \
+               tam_8992
 
 PREDICTS_TRN := $(foreach m, $(BASE_MODELS), $(DIR_VAL)/$(m).val.yht)
 PREDICTS_TST := $(foreach m, $(BASE_MODELS), $(DIR_TST)/$(m).tst.yht)

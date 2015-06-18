@@ -1,0 +1,59 @@
+include Makefile.feature.feature_tam
+
+N_TREE = 50
+DEPTH = 4
+ETA = 0.05
+N = 40
+DIM = 16
+LRATE = 0.005
+ALGO_NAME := ffm_xg_$(N_TREE)_$(DEPTH)_$(N)_$(DIM)_$(LRATE)
+MODEL_NAME := $(ALGO_NAME)_$(FEATURE_NAME)
+
+METRIC_VAL := $(DIR_METRIC)/$(MODEL_NAME).val.txt
+
+MODEL_TRN := $(DIR_MODEL)/$(MODEL_NAME).trn.mdl
+
+PREDICT_VAL := $(DIR_VAL)/$(MODEL_NAME).val.yht
+PREDICT_TST := $(DIR_TST)/$(MODEL_NAME).tst.yht
+
+SUBMISSION_TST := $(DIR_TST)/$(MODEL_NAME).sub.csv
+SUBMISSION_TST_GZ := $(DIR_TST)/$(MODEL_NAME).sub.csv.gz
+
+all: validation submission
+validation: $(METRIC_VAL)
+submission: $(SUBMISSION_TST)
+retrain: clean_$(ALGO_NAME) submission
+
+$(PREDICT_TST) $(PREDICT_VAL) $(MODEL_TRN) : $(FEATURE_TRN) \
+                                             $(FEATURE_TST) | $(DIR_VAL) \
+                                             $(DIR_TST) $(DIR_MODEL)
+	./src/train_predict_ffm_xg.py --train-file $< \
+                                  --test-file $(lastword $^) \
+                                  --predict-valid-file $(PREDICT_VAL) \
+                                  --predict-test-file $(PREDICT_TST) \
+                                  --model-file $(MODEL_TRN) \
+                                  --dim $(DIM) \
+                                  --depth $(DEPTH) \
+                                  --lrate $(LRATE) \
+                                  --eta $(ETA) \
+                                  --n-iter $(N) \
+                                  --n-tree $(N_TREE)
+
+$(SUBMISSION_TST_GZ): $(SUBMISSION_TST)
+	gzip $<
+
+$(SUBMISSION_TST): $(PREDICT_TST) $(ID_TST) | $(DIR_TST)
+	paste -d, $(lastword $^) $< > $@
+
+$(METRIC_VAL): $(PREDICT_VAL) $(LABEL_TRN) | $(DIR_METRIC)
+	./src/evaluate.py -t $(lastword $^) -p $< > $@
+	cat $@
+
+
+clean:: clean_$(ALGO_NAME)
+
+clean_$(ALGO_NAME):
+	-rm $(METRIC_VAL) $(PREDICT_VAL) $(PREDICT_TST) $(SUBMISSION_TST)
+	find . -name '*.pyc' -delete
+
+.DEFAULT_GOAL := all
