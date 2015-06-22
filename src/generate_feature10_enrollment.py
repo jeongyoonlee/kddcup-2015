@@ -96,7 +96,7 @@ def generate_feature(train_file, test_file, object_file,
             x = X[i].toarray().flatten()
             idx = np.where(x != 0)[0]
             features = ' '.join(['{}:{}'.format(j + 1, x[j]) for j in idx])
-            f.write('{} {}\n'.format(df.index.values[i], features))
+            f.write('{} {}\n'.format(cid.index.values[i], features))
 
     uid = df.drop(['enrollment_id', 'time', 'last_date'], axis=1)
     uid.set_index('username', inplace=True)
@@ -108,7 +108,7 @@ def generate_feature(train_file, test_file, object_file,
             x = X[i].toarray().flatten()
             idx = np.where(x != 0)[0]
             features = ' '.join(['{}:{}'.format(j + 1, x[j]) for j in idx])
-            f.write('{} {}\n'.format(df.index.values[i], features))
+            f.write('{} {}\n'.format(uid.index.values[i], features))
 
  
 if __name__ == '__main__':
