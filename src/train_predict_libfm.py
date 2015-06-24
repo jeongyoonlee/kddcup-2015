@@ -62,7 +62,7 @@ def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
         p_val[i_val] = np.loadtxt(valid_predict_file)
         os.remove(valid_predict_file)
 
-    logging.info('AUC = {:.4f}'.format(AUC(y, p_val)))
+    logging.info('AUC = {:.6f}'.format(AUC(y, p_val)))
     np.savetxt(predict_valid_file, p_val, fmt='%.6f')
 
     logging.info('Retraining with 100% data...')

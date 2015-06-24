@@ -50,12 +50,12 @@ def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
             auc_val = AUC(y_val[i_val], p_val[i_val])
 
             if (i_iter == 0) or ((i_iter + 1) % int(n_iter / 10) == 0) or (i_iter == n_iter - 1):
-                logging.info('#{:4d}\t______\t{:.4f}'.format(i_iter + 1,
+                logging.info('#{:4d}\t______\t{:.6f}'.format(i_iter + 1,
                                                              auc_val))
 
         auc += auc_val
 
-    logging.info('AUC = {:.4f}'.format(auc / n_fold))
+    logging.info('AUC = {:.6f}'.format(auc / n_fold))
 
     logging.info('Retraining with 100% data...')
     clf = NN(n=100000, h=hidden, a=lrate, seed=2015)

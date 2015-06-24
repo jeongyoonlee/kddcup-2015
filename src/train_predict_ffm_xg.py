@@ -109,7 +109,7 @@ def train_predict(train_file, test_file,
 
         p[i_val] = np.loadtxt(valid_predict_file)
 
-    logging.info('AUC = {:.4f}'.format(AUC(y, p)))
+    logging.info('AUC = {:.6f}'.format(AUC(y, p)))
     np.savetxt(predict_valid_file, p, fmt='%.6f')
 
     ffm_train_file = os.path.join(dir_feature, '{}.trn.ffm'.format(xg_feature_name))

@@ -8,6 +8,7 @@ from sklearn.ensemble import ExtraTreesClassifier as ET
 import argparse
 import logging
 import numpy as np
+import os
 import time
 
 from kaggler.data_io import load_data
@@ -16,10 +17,13 @@ from kaggler.data_io import load_data
 def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
                   n_est, depth, n_fold=5):
 
+    feature_name = os.path.basename(train_file)[:-4]
     logging.basicConfig(format='%(asctime)s   %(levelname)s   %(message)s',
-                        level=logging.DEBUG, filename='et_{}_{}.log'.format(
-                                                        n_est, depth
-                                                       ))
+                        level=logging.DEBUG,
+                        filename='et_{}_{}_{}.log'.format(n_est,
+                                                          depth,
+                                                          feature_name))
+
 
     logging.info('Loading training and test data...')
     X, y = load_data(train_file)
@@ -30,13 +34,15 @@ def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
 
     cv = StratifiedKFold(y, n_folds=n_fold, shuffle=True, random_state=2015)
 
-    logging.info('Cross validation...')
     p_val = np.zeros_like(y)
-    for i_trn, i_val in cv:
+    for i, (i_trn, i_val) in enumerate(cv, 1):
+        logging.info('Training model #{}...'.format(i))
         clf.fit(X[i_trn], y[i_trn])
         p_val[i_val] = clf.predict_proba(X[i_val])[:, 1]
+        logging.info('AUC TRN = {:.6f}'.format(AUC(y[i_trn], clf.predict_proba(X[i_trn])[:, 1])))
+        logging.info('AUC VAL = {:.6f}'.format(AUC(y[i_val], p_val[i_val])))
 
-    logging.info('AUC = {:.4f}'.format(AUC(y, p_val)))
+    logging.info('AUC = {:.6f}'.format(AUC(y, p_val)))
 
     logging.info('Retraining with 100% data...')
     clf.fit(X, y)

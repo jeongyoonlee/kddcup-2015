@@ -16,10 +16,13 @@ from kaggler.data_io import load_data
 def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
                   n_est, depth, n_fold=5):
 
+    feature_name = os.path.basename(train_file)[:-4]
     logging.basicConfig(format='%(asctime)s   %(levelname)s   %(message)s',
-                        level=logging.DEBUG, filename='rf_{}_{}.log'.format(
-                                                        n_est, depth
-                                                       ))
+                        level=logging.DEBUG,
+                        filename='rf_{}_{}_{}.log'.format(n_est,
+                                                          depth,
+                                                          feature_name))
+
 
     logging.info('Loading training and test data...')
     X, y = load_data(train_file)
