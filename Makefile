@@ -43,6 +43,9 @@ ID_TST := $(DIR_DATA)/id.tst.txt
 Y_TRN := $(DIR_DATA)/y.trn.yht
 Y_TST := $(DIR_DATA)/y.tst.yht
 
+CID_TRN := $(DIR_DATA)/cid.trn.txt
+CID_TST := $(DIR_DATA)/cid.tst.txt
+
 $(DATA_TST_LOG_ID): $(DATA_TST_LOG) $(DATA_TST_ENR)
 	python src/join_log_enrollment.py --log-file $< \
                                       --enrollment-file $(lastword $^) \

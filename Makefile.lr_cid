@@ -1,17 +1,10 @@
-include Makefile.feature.feature_sk
+include Makefile.feature.esb57_rank
 
-N_TREE = 50
-DEPTH = 4
-ETA = 0.05
-N = 20
-DIM = 16
-LRATE = 0.005
-ALGO_NAME := ffm_xg_$(N_TREE)_$(DEPTH)_$(ETA)_$(N)_$(DIM)_$(LRATE)
+C := 0.005
+ALGO_NAME := lr_cid_$(C)
 MODEL_NAME := $(ALGO_NAME)_$(FEATURE_NAME)
 
 METRIC_VAL := $(DIR_METRIC)/$(MODEL_NAME).val.txt
-
-MODEL_TRN := $(DIR_MODEL)/$(MODEL_NAME).trn.mdl
 
 PREDICT_VAL := $(DIR_VAL)/$(MODEL_NAME).val.yht
 PREDICT_TST := $(DIR_TST)/$(MODEL_NAME).tst.yht
@@ -24,20 +17,15 @@ validation: $(METRIC_VAL)
 submission: $(SUBMISSION_TST)
 retrain: clean_$(ALGO_NAME) submission
 
-$(PREDICT_TST) $(PREDICT_VAL) $(MODEL_TRN) : $(FEATURE_TRN) \
-                                             $(FEATURE_TST) | $(DIR_VAL) \
-                                             $(DIR_TST) $(DIR_MODEL)
-	./src/train_predict_ffm_xg.py --train-file $< \
-                                  --test-file $(lastword $^) \
+$(PREDICT_TST) $(PREDICT_VAL): $(FEATURE_TRN) $(FEATURE_TST) \
+                                   | $(DIR_VAL) $(DIR_TST)
+	./src/train_predict_lr_cid.py --train-file $< \
+                                  --test-file $(word 2, $^) \
                                   --predict-valid-file $(PREDICT_VAL) \
                                   --predict-test-file $(PREDICT_TST) \
-                                  --model-file $(MODEL_TRN) \
-                                  --dim $(DIM) \
-                                  --depth $(DEPTH) \
-                                  --lrate $(LRATE) \
-                                  --eta $(ETA) \
-                                  --n-iter $(N) \
-                                  --n-tree $(N_TREE)
+                                  --cid-train-file $(CID_TRN) \
+                                  --cid-test-file $(CID_TST) \
+                                  --C $(C)
 
 $(SUBMISSION_TST_GZ): $(SUBMISSION_TST)
 	gzip $<

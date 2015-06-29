@@ -1,0 +1,82 @@
+include Makefile
+
+FEATURE_NAME := esb55
+
+BASE_MODELS := xg_400_4_0.05_feature_rw \
+               xg_400_4_0.05_feature_tam \
+               xg_400_4_0.05_feature_sk \
+               xg_600_4_0.05_feature10 \
+               xg_600_4_0.05_feature9 \
+               xg_400_4_0.05_feature6 \
+               xg_400_4_0.05_feature3 \
+               xg_400_4_0.05_feature_mj \
+               xgl_500_0.5_10_10_feature_rw_v2 \
+               ffm_30_20_0.01_feature_rw_v2 \
+               ffm_30_20_0.01_feature_tam \
+               ffm_30_20_0.01_feature9 \
+               ffm_20_20_0.01_feature6 \
+               ffm_20_20_0.01_feature3 \
+               libfm_100_4_0.002_feature_rw_v2 \
+               libfm_100_4_0.002_feature_tam \
+               libfm_100_4_0.002_feature9 \
+               libfm_100_8_0.01_feature3 \
+               libfm_100_8_0.01_feature6 \
+               nn_20_16_0.01_feature_rw_v2 \
+               nn_20_16_0.01_feature9 \
+               nn_20_16_0.005_feature3 \
+               nn_20_16_0.005_feature5 \
+               lr_0.01_feature_tam \
+               lr_0.01_feature_mj \
+               lr_0.01_feature9 \
+               lr_0.01_feature3 \
+               lr_0.01_feature6 \
+               et_1000_20_feature_rw_v2 \
+               et_1000_20_feature_tam \
+               mj_knn_8776 \
+               mj_8867 \
+               mj_8912 \
+               mj_8905 \
+               mj_krr_8945 \
+               mj_nn_rw_v2 \
+               mj_nn_9034 \
+               mb_nn_rw \
+               tam_8979 \
+               tam_8988 \
+               tam_8989 \
+               tam_8987 \
+               tam_8875 \
+               tam_8935 \
+               tam_8991 \
+               tam_8992 \
+               tam_9049 \
+               tam_9056 \
+               rw_ffm_9019 \
+               rw_xg_9022 \
+               rw_xg_sk_9049 \
+               sk_9029 \
+               tam_9053 \
+               mj_nn_9037 \
+               mj_nn_9036
+
+PREDICTS_TRN := $(foreach m, $(BASE_MODELS), $(DIR_VAL)/$(m).val.yht)
+PREDICTS_TST := $(foreach m, $(BASE_MODELS), $(DIR_TST)/$(m).tst.yht)
+
+FEATURE_TRN_SPS := $(DIR_FEATURE)/$(FEATURE_NAME).trn.sps
+FEATURE_TST_SPS := $(DIR_FEATURE)/$(FEATURE_NAME).tst.sps
+
+FEATURE_TRN := $(DIR_FEATURE)/$(FEATURE_NAME).trn.csv
+FEATURE_TST := $(DIR_FEATURE)/$(FEATURE_NAME).tst.csv
+
+%.sps: %.csv
+	python src/csv_to_sps.py --csv-file $< --sps-file $@
+
+$(FEATURE_TRN): $(Y_TRN) $(PREDICTS_TRN) | $(DIR_FEATURE)
+	paste -d, $^ > $@
+
+$(FEATURE_TST): $(Y_TST) $(PREDICTS_TST) | $(DIR_FEATURE)
+	paste -d, $^ > $@
+
+clean:: clean_$(FEATURE_NAME)
+
+clean_$(FEATURE_NAME):
+	-rm $(FEATURE_TRN) $(FEATURE_TST) 

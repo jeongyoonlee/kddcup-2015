@@ -1,8 +1,8 @@
-include Makefile.feature.feature5
+include Makefile.feature.esb47
 
 N = 20
-HIDDEN = 16
-LRATE = 0.005
+HIDDEN = 32
+LRATE = 0.02
 ALGO_NAME := nn_$(N)_$(HIDDEN)_$(LRATE)
 MODEL_NAME := $(ALGO_NAME)_$(FEATURE_NAME)
 
@@ -19,7 +19,7 @@ validation: $(METRIC_VAL)
 submission: $(SUBMISSION_TST)
 retrain: clean_$(ALGO_NAME) submission
 
-$(PREDICT_TST) $(PREDICT_VAL): $(FEATURE_TRN) $(FEATURE_TST) \
+$(PREDICT_TST) $(PREDICT_VAL): $(FEATURE_TRN_SPS) $(FEATURE_TST_SPS) \
                                    | $(DIR_VAL) $(DIR_TST)
 	./src/train_predict_nn.py --train-file $< \
                                   --test-file $(word 2, $^) \

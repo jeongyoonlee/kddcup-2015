@@ -34,7 +34,7 @@ def train_predict(train_file, test_file,
     param = {'max_depth': depth,
              'eta': eta,
              'objective': 'binary:logistic',
-             'colsample_bytree': .8,
+             'colsample_bytree': .5,
              'subsample': .5,
              'eval_metric': 'auc',
              'seed': 2015}
