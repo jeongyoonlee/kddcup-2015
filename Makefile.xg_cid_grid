@@ -1,4 +1,4 @@
-include Makefile.feature.esb55_rank
+include Makefile.feature.esb56_rank
 
 ALGO_NAME := xg_cid_grid
 MODEL_NAME := $(ALGO_NAME)_$(FEATURE_NAME)

@@ -15,18 +15,54 @@ from kaggler.data_io import load_data
 import xgboost as xgb
 
 
+PARAM = [[400, 0.005, 4],
+          [800, 0.02, 6],
+          [400, 0.005, 4],
+          [200, 0.005, 4],
+          [400, 0.005, 4],
+          [400, 0.01, 4],
+          [800, 0.005, 4],
+          [400, 0.005, 4],
+          [400, 0.01, 4],
+          [800, 0.005, 4],
+          [400, 0.01, 4],
+          [800, 0.005, 4],
+          [200, 0.01, 4],
+          [200, 0.01, 4],
+          [200, 0.02, 4],
+          [200, 0.02, 5],
+          [200, 0.005, 4],
+          [400, 0.01, 5],
+          [400, 0.005, 4],
+          [200, 0.01, 6],
+          [200, 0.02, 4],
+          [800, 0.005, 4],
+          [200, 0.02, 4],
+          [200, 0.01, 4],
+          [200, 0.005, 4],
+          [400, 0.02, 6],
+          [800, 0.005, 4],
+          [200, 0.005, 4],
+          [800, 0.005, 4],
+          [200, 0.02, 4],
+          [400, 0.01, 5],
+          [200, 0.005, 4],
+          [200, 0.02, 4],
+          [400, 0.005, 4],
+          [200, 0.005, 4],
+          [400, 0.01, 4],
+          [200, 0.02, 5],
+          [200, 0.01, 5],
+          [200, 0.01, 4]]
+
 def train_predict(train_file, test_file,
                   predict_valid_file, predict_test_file,
-                  cid_train_file, cid_test_file,
-                  n_est=100, depth=4, lrate=.1, n_fold=5):
+                  cid_train_file, cid_test_file):
 
     feature_name = os.path.basename(train_file)[:-4]
     logging.basicConfig(format='%(asctime)s   %(levelname)s   %(message)s',
                         level=logging.DEBUG,
-                        filename='xg_cid_{}_{}_{}_{}.log'.format(n_est,
-                                                                 depth,
-                                                                 lrate,
-                                                                 feature_name))
+                        filename='xg_cid_{}.log'.format(feature_name))
 
     logging.info('Loading course IDs for training and test data')
     cid_trn = np.loadtxt(cid_train_file, dtype=int)
@@ -36,11 +72,7 @@ def train_predict(train_file, test_file,
     X, y = load_data(train_file)
     X_tst, y_tst = load_data(test_file)
 
-    clf = xgb.XGBClassifier(max_depth=depth, learning_rate=lrate,
-                            n_estimators=n_est, colsample_bytree=.8,
-                            subsample=.5, nthread=6)
-
-    cv = StratifiedKFold(y, n_folds=n_fold, shuffle=True, random_state=2015)
+    cv = StratifiedKFold(y, n_folds=5, shuffle=True, random_state=2015)
 
     p = np.zeros_like(y)
     for i, (i_trn, i_val) in enumerate(cv, 1):
@@ -57,6 +89,13 @@ def train_predict(train_file, test_file,
         for j in range(39):
             idx_trn = np.where(cid_valtrn == j)[0]
             idx_val = np.where(cid_valtst == j)[0]
+
+            clf = xgb.XGBClassifier(max_depth=PARAM[j][2],
+                                    learning_rate=PARAM[j][1],
+                                    n_estimators=PARAM[j][0],
+                                    colsample_bytree=1,
+                                    subsample=.4,
+                                    nthread=6)
 
             clf.fit(X_trn[idx_trn], y_trn[idx_trn])
             p_trn[idx_trn] = clf.predict_proba(X_trn[idx_trn])[:, 1]
@@ -101,9 +140,6 @@ if __name__ == '__main__':
                         dest='cid_train_file')
     parser.add_argument('--cid-test-file', required=True,
                         dest='cid_test_file')
-    parser.add_argument('--n-est', type=int, dest='n_est')
-    parser.add_argument('--depth', type=int, dest='depth')
-    parser.add_argument('--lrate', type=float, dest='lrate')
 
     args = parser.parse_args()
 
@@ -113,9 +149,6 @@ if __name__ == '__main__':
                   predict_valid_file=args.predict_valid_file,
                   predict_test_file=args.predict_test_file,
                   cid_train_file=args.cid_train_file,
-                  cid_test_file=args.cid_test_file,
-                  n_est=args.n_est,
-                  depth=args.depth,
-                  lrate=args.lrate)
+                  cid_test_file=args.cid_test_file)
     logging.info('finished ({:.2f} min elasped)'.format((time.time() - start) /
                                                         60))

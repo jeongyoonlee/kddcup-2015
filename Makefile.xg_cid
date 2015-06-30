@@ -1,9 +1,6 @@
-include Makefile.feature.esb55_rank
+include Makefile.feature.esb56_rank
 
-N = 400
-DEPTH = 8
-LRATE = 0.01
-ALGO_NAME := xg_cid_$(N)_$(DEPTH)_$(LRATE)
+ALGO_NAME := xg_cid
 MODEL_NAME := $(ALGO_NAME)_$(FEATURE_NAME)
 
 METRIC_VAL := $(DIR_METRIC)/$(MODEL_NAME).val.txt
@@ -26,10 +23,7 @@ $(PREDICT_TST) $(PREDICT_VAL): $(FEATURE_TRN) $(FEATURE_TST) \
                                   --predict-valid-file $(PREDICT_VAL) \
                                   --predict-test-file $(PREDICT_TST) \
                                   --cid-train-file $(CID_TRN) \
-                                  --cid-test-file $(CID_TST) \
-                                  --depth $(DEPTH) \
-                                  --lrate $(LRATE) \
-                                  --n-est $(N)
+                                  --cid-test-file $(CID_TST)
 
 $(SUBMISSION_TST_GZ): $(SUBMISSION_TST)
 	gzip $<
