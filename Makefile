@@ -10,6 +10,7 @@ DIR_DATA := data
 DIR_BUILD := build
 DIR_SRC := src
 DIR_BIN := $(DIR_BUILD)/bin
+DIR_BLEND := $(DIR_BUILD)/blend
 DIR_FEATURE := $(DIR_BUILD)/feature
 DIR_METRIC := $(DIR_BUILD)/metric
 DIR_MODEL := $(DIR_BUILD)/model
@@ -33,7 +34,7 @@ DATA_TRN_LOG_V2 := $(DIR_DATA)/log_train_source_event.csv
 DATA_TST_LOG_V2 := $(DIR_DATA)/log_test_source_event.csv
 
 DIRS := $(DIR_DATA) $(DIR_BUILD) $(DIR_FEATURE) $(DIR_METRIC) $(DIR_MODEL) \
-        $(DIR_VAL) $(DIR_TST) $(DIR_BIN)
+        $(DIR_VAL) $(DIR_TST) $(DIR_BIN) $(DIR_BLEND)
 
 # data files for training and predict
 SUBMISSION_SAMPLE := $(DIR_DATA)/sampleSubmission.csv

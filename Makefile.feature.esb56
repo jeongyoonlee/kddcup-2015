@@ -71,11 +71,11 @@ FEATURE_TST := $(DIR_FEATURE)/$(FEATURE_NAME).tst.csv
 %.sps: %.csv
 	python src/csv_to_sps.py --csv-file $< --sps-file $@
 
-$(FEATURE_TRN): $(Y_TRN) $(PREDICTS_TRN) | $(DIR_FEATURE)
-	paste -d, $^ > $@
+#$(FEATURE_TRN): $(Y_TRN) $(PREDICTS_TRN) | $(DIR_FEATURE)
+#	paste -d, $^ > $@
 
-$(FEATURE_TST): $(Y_TST) $(PREDICTS_TST) | $(DIR_FEATURE)
-	paste -d, $^ > $@
+#$(FEATURE_TST): $(Y_TST) $(PREDICTS_TST) | $(DIR_FEATURE)
+#	paste -d, $^ > $@
 
 clean:: clean_$(FEATURE_NAME)
 
