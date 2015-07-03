@@ -1,0 +1,14 @@
+include Makefile
+
+FEATURE_NAME := esb56_rank_4
+
+FEATURE_TRN_SPS := $(DIR_FEATURE)/$(FEATURE_NAME).trn.sps
+FEATURE_TST_SPS := $(DIR_FEATURE)/$(FEATURE_NAME).tst.sps
+
+FEATURE_TRN := $(FEATURE_TRN_SPS)
+FEATURE_TST := $(FEATURE_TST_SPS)
+
+clean:: clean_$(FEATURE_NAME)
+
+clean_$(FEATURE_NAME):
+	-rm $(FEATURE_TRN) $(FEATURE_TST) 

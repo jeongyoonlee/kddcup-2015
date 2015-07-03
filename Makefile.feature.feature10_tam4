@@ -1,0 +1,20 @@
+#--------------------------------------------------------------------------
+# feature10_tam: feature10 + feature_tam + rw_sk_4add_feature
+#--------------------------------------------------------------------------
+include Makefile
+
+FEATURE_NAME := feature10_tam4
+
+FEATURE_TRN := $(DIR_FEATURE)/$(FEATURE_NAME).trn.sps
+FEATURE_TST := $(DIR_FEATURE)/$(FEATURE_NAME).tst.sps
+
+FEATURE_TRN_SPS := $(FEATURE_TRN)
+FEATURE_TST_SPS := $(FEATURE_TST)
+
+FEATURE_TRN_FFM := $(DIR_FEATURE)/$(FEATURE_NAME).trn.ffm
+FEATURE_TST_FFM := $(DIR_FEATURE)/$(FEATURE_NAME).tst.ffm
+
+%.ffm: %.sps
+	python src/svm_to_ffm.py --svm-file $< \
+                             --ffm-file $@ \
+                             --feature-name $(FEATURE_NAME)

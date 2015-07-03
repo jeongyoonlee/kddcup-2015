@@ -41,6 +41,9 @@ FEATURE_TST := $(DIR_FEATURE)/$(FEATURE_NAME).tst.sps
 FEATURE_TRN_SPS := $(FEATURE_TRN)
 FEATURE_TST_SPS := $(FEATURE_TST)
 
+FEATURE_TRN_VW := $(DIR_FEATURE)/$(FEATURE_NAME).trn.vw
+FEATURE_TST_VW := $(DIR_FEATURE)/$(FEATURE_NAME).tst.vw
+
 FEATURE_UID := $(DIR_FEATURE)/$(FEATURE_NAME).uid.sps
 FEATURE_CID := $(DIR_FEATURE)/$(FEATURE_NAME).cid.sps
 
@@ -90,3 +93,8 @@ $(FEATURE_CID): $(FEATURE_CID_LOG)
 	python src/svm_to_ffm.py --svm-file $< \
                              --ffm-file $@ \
                              --feature-name $(FEATURE_NAME)
+
+%.vw: %.sps
+	python src/svm_to_vw.py --svm-file $< \
+                            --vw-file $@ \
+                            --feature-name $(FEATURE_NAME)

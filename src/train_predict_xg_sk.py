@@ -31,7 +31,7 @@ def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
     X_tst, _ = load_data(test_file)
 
     clf = xgb.XGBClassifier(max_depth=depth, learning_rate=lrate,
-                            n_estimators=n_est, colsample_bytree=1,
+                            n_estimators=n_est, colsample_bytree=.4,
                             subsample=.4, nthread=6)
 
     cv = StratifiedKFold(y, n_folds=n_fold, shuffle=True, random_state=2015)
