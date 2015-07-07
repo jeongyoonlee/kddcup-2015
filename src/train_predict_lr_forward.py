@@ -14,19 +14,19 @@ import time
 from kaggler.data_io import load_data
 
 
-def train_predict_lr_fs(train_file, test_file, predict_valid_file,
+def train_predict_lr_forward(train_file, test_file, predict_valid_file,
                         predict_test_file, C, n_fold=5):
 
     feature_name = os.path.basename(train_file)[:-8]
-    algo_name = 'lr_fs_{}'.format(C)
+    algo_name = 'lr_forward_{}'.format(C)
     model_name = '{}_{}'.format(algo_name, feature_name)
     logging.basicConfig(format='%(asctime)s   %(levelname)s   %(message)s',
                         level=logging.DEBUG,
                         filename='{}.log'.format(model_name))
 
     logging.info("Loading training and test data...")
-    X_trn, y_trn = load_data(train_file)
-    X_tst, _ = load_data(test_file)
+    X_trn, y_trn = load_data(train_file, dense=True)
+    X_tst, _ = load_data(test_file, dense=True)
 
     logging.info('Normalizing data')
     scaler = StandardScaler()
@@ -105,7 +105,7 @@ if __name__=="__main__":
     args = parser.parse_args()
 
     start = time.time()
-    train_predict_lr_fs(train_file=args.train,
+    train_predict_lr_forward(train_file=args.train,
                         test_file=args.test,
                         predict_valid_file=args.predict_train,
                         predict_test_file=args.predict_test,
