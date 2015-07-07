@@ -28,7 +28,8 @@ def train_predict(train_file, test_file, train_svm_file,
     algo_name = 'ffm_{}_{}_{}'.format(n_iter, dim, lrate)
     model_name = '{}_{}'.format(algo_name, feature_name)
     logging.basicConfig(format='%(asctime)s   %(levelname)s   %(message)s',
-                        level=logging.DEBUG, filename='{}.log'.format(model_name))
+                        level=logging.DEBUG,
+                        filename='{}.log'.format(model_name))
 
     logging.info('Loading training data')
     X, y = load_svmlight_file(train_svm_file)
