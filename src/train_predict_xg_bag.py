@@ -17,26 +17,25 @@ import xgboost as xgb
 
 
 def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
-                  n_est=100, depth=4, lrate=.1, n_fold=5, n_bag=50):
+                  n_est=100, depth=4, lrate=.1, n_fold=5, n_bag=50, subrow=.5,
+                  subcol=.8):
 
     feature_name = os.path.basename(train_file)[:-4]
     logging.basicConfig(format='%(asctime)s   %(levelname)s   %(message)s',
                         level=logging.DEBUG,
-                        filename='xg_bag{}_{}_{}_{}_{}.log'.format(n_bag,
-                                                                   n_est,
-                                                                 depth,
-                                                                 lrate,
-                                                                 feature_name))
+                        filename='xg_bag{}_{}_{}_{}_{}_{}_{}.log'.format(
+                            n_bag, n_est, depth, lrate, subrow, subcol, feature_name
+                        ))
 
     logging.info('Loading training and test data...')
     X, y = load_data(train_file)
     X_tst, _ = load_data(test_file)
 
     xg = xgb.XGBClassifier(max_depth=depth, learning_rate=lrate,
-                           n_estimators=n_est, colsample_bytree=.4,
-                           subsample=.4, nthread=8)
+                           n_estimators=n_est, colsample_bytree=.8,
+                           subsample=.5, nthread=4)
 
-    clf = BG(xg, n_estimators=n_bag, max_samples=.8, max_features=.9)
+    clf = BG(xg, n_estimators=n_bag, max_samples=subrow, max_features=subcol)
     cv = StratifiedKFold(y, n_folds=n_fold, shuffle=True, random_state=2015)
 
     p_val = np.zeros_like(y)
@@ -70,6 +69,8 @@ if __name__ == '__main__':
     parser.add_argument('--n-bag', type=int, dest='n_bag')
     parser.add_argument('--depth', type=int, dest='depth')
     parser.add_argument('--lrate', type=float, dest='lrate')
+    parser.add_argument('--subrow', type=float, dest='subrow')
+    parser.add_argument('--subcol', type=float, dest='subcol')
 
     args = parser.parse_args()
 
@@ -81,6 +82,8 @@ if __name__ == '__main__':
                   n_est=args.n_est,
                   depth=args.depth,
                   lrate=args.lrate,
-                  n_bag=args.n_bag)
+                  n_bag=args.n_bag,
+                  subrow=args.subrow,
+                  subcol=args.subcol)
     logging.info('finished ({:.2f} min elasped)'.format((time.time() - start) /
                                                         60))
