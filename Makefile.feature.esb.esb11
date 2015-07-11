@@ -2,20 +2,29 @@ include Makefile
 
 FEATURE_NAME := esb.esb11
 
-BASE_MODELS := xg_400_8_0.01_esb42 \
-               xg_400_8_0.01_esb45 \
-               xg_400_8_0.01_esb46 \
-               nn_20_32_0.02_esb46 \
-               nn_20_32_0.02_esb45 \
-               libfm_100_16_0.002_esb45 \
-               libfm_100_16_0.002_esb46 \
-               et_1000_20_esb45 \
-               et_1000_20_esb46 \
-               lr_0.5_esb45 \
-               lr_0.5_esb46
+PREDICTS_TRN := $(DIR_BLEND)/ConfigAMLCUDAPreModel.txt.validCV.0.907016 \
+                $(DIR_BLEND)/esb55.dae+nn.validCV.0.906956 \
+                $(DIR_BLEND)/xgb_rf_esb55.xix.txt.valCV.0.906689 \
+                $(DIR_BLEND)/trn.esb56.blend.at.90728 \
+                $(DIR_BLEND)/xg_sk_1800_5_0.004_esb56_rank_4.val.yht \
+                $(DIR_BLEND)/xg_sk_1800_5_0.004_esb58v5_rank.val.yht \
+                $(DIR_BLEND)/lr_forward_0.01_esb56_rank_norm.val.yht \
+                $(DIR_BLEND)/nn_20_32_0.02_esb52_rank_norm.val.yht \
+                $(DIR_BLEND)/libfm_100_16_0.002_esb56_rank_norm.val.yht \
+                $(DIR_BLEND)/et_esb57_rw.val.0.905268 \
+                $(DIR_BLEND)/train0.90717_nn.esb55.0.906817_xgb.esb55.0.906850_lr.esb55.0.906188_xgb_rf_esb55.0.906689_xgb_rf.xx.txt.testCV.0.905633
 
-PREDICTS_TRN := $(foreach m, $(BASE_MODELS), $(DIR_VAL)/$(m).val.yht)
-PREDICTS_TST := $(foreach m, $(BASE_MODELS), $(DIR_TST)/$(m).tst.yht)
+PREDICTS_TST := $(DIR_BLEND)/ConfigAMLCUDAPreModel.txt.testCV.0.907016 \
+                $(DIR_BLEND)/esb55.dae+nn.testCV.0.906956 \
+                $(DIR_BLEND)/xgb_rf_esb55.xix.txt.testCV.0.906689 \
+                $(DIR_BLEND)/tst.esb56.blend.at.90728 \
+                $(DIR_BLEND)/xg_sk_1800_5_0.004_esb56_rank_4.tst.yht \
+                $(DIR_BLEND)/xg_sk_1800_5_0.004_esb58v5_rank.tst.yht \
+                $(DIR_BLEND)/lr_forward_0.01_esb56_rank_norm.tst.yht \
+                $(DIR_BLEND)/nn_20_32_0.02_esb52_rank_norm.tst.yht \
+                $(DIR_BLEND)/libfm_100_16_0.002_esb56_rank_norm.tst.yht \
+                $(DIR_BLEND)/et_esb57_rw.test.0.905268 \
+                $(DIR_BLEND)/test0.90717_nn.esb55.0.906817_xgb.esb55.0.906850_lr.esb55.0.906188_xgb_rf_esb55.0.906689_xgb_rf.xx.txt.testCV.0.905633
 
 FEATURE_TRN_SPS := $(DIR_FEATURE)/$(FEATURE_NAME).trn.sps
 FEATURE_TST_SPS := $(DIR_FEATURE)/$(FEATURE_NAME).tst.sps
