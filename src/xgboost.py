@@ -867,6 +867,7 @@ class XGBClassifier(XGBModel, ClassifierMixin):
 
         self._le = LabelEncoder().fit(y)
         training_labels = self._le.transform(y)
+        self.classes_ = np.unique(training_labels)
 
         if sample_weight is not None:
             trainDmatrix = DMatrix(X, label=training_labels, weight=sample_weight)
