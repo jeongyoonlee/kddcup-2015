@@ -1,0 +1,33 @@
+include Makefile
+
+FEATURE_NAME := esb51
+
+BASE_FEATURE := esb50v2
+
+PREDICTS_TRN := $(DIR_BLEND)/ko_v83.valCV.0.90672878.csv
+
+PREDICTS_TST := $(DIR_BLEND)/ko_v83.testCV.0.90672878.csv
+
+FEATURE_TRN_SPS := $(DIR_FEATURE)/$(FEATURE_NAME).trn.sps
+FEATURE_TST_SPS := $(DIR_FEATURE)/$(FEATURE_NAME).tst.sps
+
+FEATURE_TRN := $(DIR_FEATURE)/$(FEATURE_NAME).trn.csv
+FEATURE_TST := $(DIR_FEATURE)/$(FEATURE_NAME).tst.csv
+
+BASE_FEATURE_TRN := $(DIR_FEATURE)/$(BASE_FEATURE).trn.csv
+BASE_FEATURE_TST := $(DIR_FEATURE)/$(BASE_FEATURE).tst.csv
+
+
+%.sps: %.csv
+	python src/csv_to_sps.py --csv-file $< --sps-file $@
+
+$(FEATURE_TRN): $(BASE_FEATURE_TRN) $(PREDICTS_TRN) | $(DIR_FEATURE)
+	paste -d, $^ > $@
+
+$(FEATURE_TST): $(BASE_FEATURE_TST) $(PREDICTS_TST) | $(DIR_FEATURE)
+	paste -d, $^ > $@
+
+clean:: clean_$(FEATURE_NAME)
+
+clean_$(FEATURE_NAME):
+	-rm $(FEATURE_TRN) $(FEATURE_TST) 
