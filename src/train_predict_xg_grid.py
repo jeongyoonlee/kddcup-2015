@@ -27,9 +27,9 @@ def train_predict(train_file, test_file, predict_valid_file, predict_test_file,
     X, y = load_data(train_file)
     X_tst, _ = load_data(test_file)
 
-    xg = xgb.XGBClassifier(subsample=0.5, colsample_bytree=0.8, nthread=6)
-    param = {'learning_rate': [.01, .02, .05], 'max_depth': [4, 6, 8],
-             'n_estimators': [200, 400, 600]}
+    xg = xgb.XGBClassifier(subsample=0.5, colsample_bytree=0.8, nthread=4)
+    param = {'learning_rate': [.005, .01, .02], 'max_depth': [4, 5, 6],
+             'n_estimators': [100, 200, 400]}
     cv = StratifiedKFold(y, n_folds=n_fold, shuffle=True, random_state=2015)
     clf = GridSearchCV(xg, param, scoring='roc_auc', verbose=1, cv=cv)
 
