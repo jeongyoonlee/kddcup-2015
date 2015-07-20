@@ -1,0 +1,73 @@
+\documentclass{sigkddExp}
+\begin{document}
+\title{Multi-Stage Ensemble and Feature Engineering for MOOC Dropout Prediction}
+\numberofauthors{9}
+\author{
+\alignauthor Jeong-Yoon Lee \\
+       \affaddr{Conversion Logic}\\
+       \affaddr{\small 12300 Wilshire Blvd. Los Angeles, CA 90025, USA}\\
+       \email{\small jeong@conversionlogic.com}
+\alignauthor Andreas Toescher\\
+       \affaddr{Opera Solutions}\\
+       \affaddr{\small Hauptplatz 12, 8580 Koeflach, Austria}\\
+       \email{\small andreas.toescher@commendo.at}
+\alignauthor Michael Jahrer\\
+       \affaddr{Opera Solutions}\\
+       \affaddr{\small Hauptplatz 12, 8580 Koeflach, Austria}\\
+       \email{\small michael.jahrer@commendo.at} \and
+\alignauthor Kohei Ozaki\\
+       \affaddr{AIG Japan Holdings KK}\\
+       \affaddr{\small Kamiyacho MT Bldg 18F, 4-3-20 Toranomon, Minato-ku, Tokyo 105-0001, Japan}\\
+       \email{\small ozaki.kohei@aig.co.jp}
+\alignauthor Mert Bay\\
+       \affaddr{Conversion Logic}\\
+       \affaddr{\small 12300 Wilshire Blvd. Los Angeles, CA 90025, USA}\\
+       \email{\small mert@conversionlogic.com}
+\alignauthor Peng Yan\\
+       \affaddr{NetEase Youdao}\\
+       \affaddr{\small 2nd Floor, Chuangye Building, Tsinghua Science Park, Beijing, 100084, China}\\
+       \email{\small yanpeng@rd.netease.com} \and
+\alignauthor Song Chen\\
+       \affaddr{American International Group, Inc. (AIG)}\\
+       \affaddr{\small 175 Water Street, New York, NY 10038, USA}\\
+       \email{\small song.chen@aig.com}
+\alignauthor Tam T. Nguyen\\
+       \affaddr{Institute for Infocomm Research, A*STAR}\\
+       \affaddr{\small 1 Fusionopolis Way, \#21-01 Connexis (South Tower), Singapore 138632}\\
+       \email{\small nguyentt@i2r.a-star.edu.sg}
+\alignauthor Xiaocong Zhou\\
+       \affaddr{Tsinghua University}\\
+       \affaddr{\small Haidian District, Beijing, 100084, China}\\
+       \email{\small infinitezxc@gmail.com}
+}
+\additionalauthors{how we can get rid of this ? this section appears with more than 6 authors.}
+
+\date{20 July 2015}
+\maketitle
+\begin{abstract}
+This paper describes the winning solution of the KDDCup 2015 ``Predicting dropouts in MOOCs'' (Massive Open Online Course).
+The problem is binary classification, where a student will dropout in the next 10 days given historic actions. Overall goal is maximize the AUC on the testset.
+Our approach begin with hand-crafted feature design, on top of that we build single models. Single models were blended to stage2 ensembles.
+Five stage2 ensembles were blended to our final solution, which results in AUC=0.90918 on the public leaderboard.
+We used stratfied 5-fold cross validation to locally check our performance.
+
+\end{abstract}
+
+\category{I.5}{Pattern Reconition}{Feature Design; }{Ensemble Techniques}
+
+\input{section_intro}
+\input{section_features}
+\input{section_singleModel}
+\input{section_ensembling}
+\input{section_conclusion}
+
+\bibliographystyle{abbrv}
+\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+% You must have a proper ".bib" file
+%  and remember to run:
+% latex bibtex latex latex
+% to resolve all references
+%
+% ACM needs 'a single self-contained file'!
+
+\end{document}
