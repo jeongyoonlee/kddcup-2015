@@ -45,15 +45,20 @@
 \date{20 July 2015}
 \maketitle
 \begin{abstract}
-This paper describes the winning solution of the KDDCup 2015 ``Predicting dropouts in MOOCs'' (Massive Open Online Course).
-The problem is binary classification, where a student will dropout in the next 10 days given historic actions. Overall goal is maximize the AUC on the testset.
-Our approach begin with hand-crafted feature design, on top of that we build single models. Single models were blended to stage2 ensembles.
-Five stage2 ensembles were blended to our final solution, which results in AUC=0.90918 on the public leaderboard.
-We used stratfied 5-fold cross validation to locally check our performance.
-
+This paper describes the winning solution of KDD Cup 2015. 
+The competition aims to predict dropouts in Massive Open Online Courses (MOOCs). 
+Our approach begins with feature engineering to extract predictive features from activity logs of students and meta data. 
+Then, we train sixty three individual classifiers with different subsets of features and seven algorithms. 
+Lastly, we blend predictions of individual classifiers with the three stage ensemble framework. 
+Our solution results in an AUC score of 0.9074 on the private leaderboard.
+% 7 algorithms: GBDT, NN/DAE+NN, LR, FFM/FM, ET, KRR, Boosting of Linear Regressor, 
 \end{abstract}
 
-\category{I.5}{Pattern Reconition}{Feature Design; }{Ensemble Techniques}
+\category{I.5}{Pattern Recognition}{Application}
+
+\terms{Application}
+
+\keywords{KDD Cup, Feature Engineering, Ensemble Learning}
 
 \input{section_intro}
 \input{section_features}
