@@ -1,7 +1,16 @@
-\section{Stage2 ensemble}
-We used xgboost \cite{xgboost}, neural nets and linear regression for stage2 ensembling.
+\section{Multi-Stage Ensemble}
+Stratified 5-fold cross validation (CV).
+We used xgboost \cite{xgboost}, neural nets and linear regression for stage-II ensembling.
 
-\section{Stage3 ensemble}
-We tried xgboost and linear stage3 ensembling.
-Finnaly we ended up with linear ensembling with 39 courseID correction factors.
-These 39 factors improved the score from 0.9091 to 0.90918.
+\subsection{Stage-I Ensemble}
+We trained 20 stage-I ensemble classifiers with different subsets of CV predictions of 63 individual classifiers.
+
+\subsection{Stage-II Ensemble}
+We trained 2 stage-II ensemble classifiers with different subsets of CV predictions of 20 stage-I ensemble classifiers.
+
+\subsection{Stage-III Ensemble}
+We trained a stage-III ensemble classifier with CV predictions of 5 classifiers: 2 stage-II ensemble, 2 stage-I ensemble, and 1 individual classifiers.
+\\
+
+Finally we ended up with linear ensembling with 39 courseID correction factors.
+These 39 factors improved the score from 0.90910 to 0.90918.
