@@ -12,5 +12,33 @@ We trained 2 stage-II ensemble classifiers with different subsets of CV predicti
 We trained a stage-III ensemble classifier with CV predictions of 5 classifiers: 2 stage-II ensemble, 2 stage-I ensemble, and 1 individual classifiers.
 \\
 
-Finally we ended up with linear ensembling with 39 courseID correction factors.
-These 39 factors improved the score from 0.90910 to 0.90918.
+\begin{center}
+\begin{tabular}{lllll}
+\label{tb:finalEnsemble}
+id & name & type & 5CV & linear weight\\ \hline
+1 & trn.final.90788 & single? & 0.907878 & 1.96267\\
+2 & esb58v5+magic.dae+nn.validCV.0.907567 & Stage-I & 0.907567 & 0.787138\\
+3 & et\_esb58v5\_rank.val.0.906207 & Stage-I & 0.906207 & 0.458095\\
+4 & lr\_forward\_0.01\_esb.esb15v3.val.yht & Stage-I & 0.907968 & 1.61461\\
+5 & xgb\_rf.ko\_new\_feat.txt.valCV.0.906721 & single? & 0.906721 & 1.1703
+\end{tabular}
+\end{center}
+
+A linear combination of the 5 models from table \ref{tb:finalEnsemble} results in train AUC=0.908072 and accuracy=0.887334.
+Which leads to 0.90910 public leaderboard score.
+By adding 39 courseID correction factors train AUC=0.908194 and public score improved to 0.90918.
+
+%final ensemble:
+%Read 1|5  trn.final.90788  acc:0.887135  AUC:0.907878
+%Read 2|5  esb58v5+magic.dae+nn.validCV.0.907567  acc:0.887143  AUC:0.907567
+%Read 3|5  et_esb58v5_rank.val.0.906207  acc:0.886919  AUC:0.906207
+%Read 4|5  lr_forward_0.01_esb.esb15v3.val.yht  acc:0.887276  AUC:0.907968
+%Read 5|5  xgb_rf.ko_new_feat.txt.valCV.0.906721  acc:0.886753  AUC:0.906721
+%linear weights:
+%w0=1.96267 w1=0.787138 w2=0.458095 w3=1.61461 w4=1.1703
+%final train errors:
+%acc:0.887334 AUC:0.908072
+%by adding course correction factors AUC on train improved to 0.908194
+
+%Finally we ended up with linear ensembling with 39 courseID correction factors.
+%These 39 factors improved the score from 0.90910 to 0.90918.
