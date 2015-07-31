@@ -22,6 +22,7 @@ something like this.
   \item Model 5: libfm. Dataset: Sparse(X). Each feature value is a unique level.
 \end{itemize}
 
+\begin{table*}[t]
 \begin{center}
 \begin{tabular}{lllll}
 \label{tb:singleModels}
@@ -32,7 +33,7 @@ S3 	& bag\_10\_xgb\_rf.xiv  	& Feature RW + Feature SK + Feature TN 			& 0.90587
 S4 	& xgb\_rf.xvi			& Feature RW + Feature TN + Feature JL				& 0.905543	& 0.905516 \\
 S5 	& xgb\_rf.xix			& Feature RW + Feature SK + Feature TN + Feature MB	& 0.905356	& - \\
 S6	& xgb\_rf.xv			& Feature RW + Feature TN						& 0.904935	& 0.905480 \\
-S7	& pred\_train\_sk\_feature\_ffm\_rw & - 										& 0.903560	& 0.904411 \\
+S7	& pred\_train\_sk\_feature\_ffm\_rw & - 									& 0.903560	& 0.904411 \\
 S8	& mjahrer.featmjahrer+Tam+RW+KoheiSong.nn & Feature RW + Feature SK + Feature TN + Feature MJ & 0.903736 & - \\
 S9	& mjahrer.featTam+RW+KoheiSong.dae+nn & Feature RW + Feature SK + Feature TN & 0.903669	& - \\
 S10	& mjahrer.featTam+RW+KoheiSong.nn & Feature RW + Feature SK + Feature TN 	& 0.903428	& - \\
@@ -40,5 +41,45 @@ S11	& xg\_400\_4\_0.05\_feature\_rw & Feature RW + Feature JL					& 0.903385	& -
 S12 	& kohei\_song			& Feature SK									& 0.902918	& - \\
 S13 	& xgb\_cv\_rw			& Feature RW 									& 0.902287	& - \\
 S14	& ffm\_cv\_rw			& Feature RW									& 0.901983	& - \\
+S15	& mjahrer.dae+nn.RWfeat	& Feature RW									& 0.901846	& 0.902614 \\
+S16	& xg\_400\_4\_0.05\_feature\_sk	& Feature SK							& 0.900906	& - \\
+S17	& xgb\_rf.xiv			& - 											& 0.899239	& - \\
+S18	& xgb\_rf.xiv			& - 											& 0.898969	& - \\
+S19 	& xgb\_rf.xiv			& - 											& 0.898890	& - \\
+S20 	& xgb.xiv				& - 											& 0.898749	& - \\
+S21	& libfm\_100\_4\_0.002\_feature\_rw\_v2	& Feature RW + Feature JL			& 0.898308	& - \\
+S22  & xgl\_500\_0.5\_10\_10\_feature\_rw\_v2	& Feature RW + Feature JL			& 0.897968	& - \\
+S23	& nn\_20\_16\_0.01\_feature\_rw\_v2	& Feature RW + Feature JL			& 0.897143	& - \\
+S24	& mb\_nn\_50\_20\_feat19	& Feature RW + Feature MB					& 0.896748	& - \\
+S25  & ffm\_30\_20\_0.01\_feature\_rw\_v2	& Feature RW + Feature JL			& 0.896160	& - \\
+S26  & xg\_400\_4\_0.05\_feature\_tam	& Feature TN							& 0.895754	& - \\
+S27	& ConfigAMLKRR		& Feature MJ									& 0.894524	& - \\
+S28	& xg\_600\_4\_0.05\_feature10	& Feature JL								& 0.892364	& - \\
+S29 	& xg\_600\_4\_0.05\_feature9	& Feature JL								& 0.892253	& - \\
+S30 	& ConfigAML			& Feature MJ									& 0.891217	& - \\
+S31	& lr\_0.01\_feature\_tam	& Feature TN									& 0.890580	& - \\
+S32	& ConfigAMLCUDAPreModel	& Feature MJ								& 0.890565	& - \\
+S33 	& ffm\_30\_20\_0.01\_feature\_tam	& Feature TN							& 0.888418	& - \\
+S34	& libfm\_100\_4\_0.002\_feature\_tam	& Feature TN						& 0.888381	& - \\
+S35	& et\_1000\_20\_feature\_tam	& Feature TN								& 0.887768	& - \\
+S36 	& ffm\_30\_20\_0.01\_feature9	& Feature JL								& 0.887116	& - \\
+S37	& libfm\_100\_4\_0.002\_feature9	& Feature JL							& 0.886866	& - \\
+S38	& ConfigAML			& Feature MJ									& 0.886705	& - \\
+S39	& nn\_20\_16\_0.01\_feature9	& Feature JL								& 0.886109	& - \\
+S40 	& xg\_400\_4\_0.05\_feature6	& Feature JL								& 0.885184	& - \\
+S41 	& xg\_400\_4\_0.05\_feature3	& Feature JL								& 0.885124	& - \\
+S42 	& ffm\_20\_20\_0.01\_feature6	& Feature JL								& 0.885037	& - \\
+S43	& ffm\_20\_20\_0.01\_feature3	& Feature JL								& 0.884697	& - \\
+S44 	& xg\_400\_4\_0.05\_feature\_mj	& Feature MJ							& 0.882441	& - \\
+S45	& et\_1000\_20\_feature\_rw\_v2	& Feature RW + Feature JL				& 0.881539	& - \\
+S46	& libfm\_100\_8\_0.01\_feature6	& Feature JL							& 0.880878	& - \\
+S47	& libfm\_100\_8\_0.01\_feature3	& Feature JL							& 0.880366	& - \\
+S48	& nn\_20\_16\_0.005\_feature3	& Feature JL								& 0.880219	& - \\
+S49	& nn\_20\_16\_0.005\_feature5	& Feature JL								& 0.876905	& - \\
+S50	& lr\_0.01\_feature\_mj		& Feature MJ								& 0.821332	& - \\
+S51	& lr\_0.01\_feature9		& Feature JL									& 0.804150	& - \\
+S52	& lr\_0.01\_feature3		& Feature JL									& 0.802138	& - \\
+S53	& lr\_0.01\_feature6		& Feature JL									& 0.800225	& - \\
 \end{tabular}
 \end{center}
+\end{table*}
