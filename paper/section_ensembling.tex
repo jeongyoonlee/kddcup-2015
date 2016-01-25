@@ -2,6 +2,24 @@
 Stratified 5-fold cross validation (CV).
 We used xgboost \cite{xgboost}, neural nets and linear regression for stage-II ensembling.
 
+\begin{figure}[!ht]
+  \caption{5-fold CV stacked generalization ensemble}
+  \centering
+    \includegraphics[width=0.5 \textwidth]{cv_ensemble}
+\end{figure}
+
+\begin{figure*}[!ht]
+  \caption{End-to-end pipeline for the final solution}
+  \centering
+    \includegraphics[width=1 \textwidth]{ensemble}
+\end{figure*}
+
+\begin{figure*}[!ht]
+  \caption{CV scores vs. public leaderboard scores}
+  \centering
+    \includegraphics[width=1 \textwidth]{cv_lb}
+\end{figure*}
+
 \subsection{Stage-I Ensemble}
 We trained 15 stage-I ensemble classifiers with different subsets of CV predictions of 64 individual classifiers.
 
