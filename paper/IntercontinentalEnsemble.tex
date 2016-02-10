@@ -1,5 +1,34 @@
-\documentclass{sig-alternate}
+\documentclass{sig-alternate-05-2015}
 \begin{document}
+
+% Copyright
+\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+
+% DOI
+%%\doi{10.475/123_4}
+
+% ISBN
+%%\isbn{123-4567-24-567/08/06}
+
+%Conference
+\conferenceinfo{KDD '16}{August 13--17, 2016, San Fransisco, CA, USA}
+
+%% \acmPrice{\$15.00}
+
+%
+% --- Author Metadata here ---
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+
 \title{Multi-Stage Ensemble and Feature Engineering for MOOC Dropout Prediction}
 \numberofauthors{9}
 \author{
@@ -26,32 +55,26 @@
        \affaddr{Conversion Logic}\\
        \affaddr{\small 12300 Wilshire Blvd. Los Angeles, CA 90025, USA}\\
        \email{\small mert@conversionlogic.com}
-\alignauthor Peng Yan\\
-       \affaddr{NetEase Youdao}\\
-       \affaddr{\small Chuangye Building, Tsinghua Science Park, Beijing, 100084, China}\\
-       \email{\small yanpeng@rd.netease.com} \and
-\alignauthor Song Chen\\
-       \affaddr{American International Group}\\
-       \affaddr{\small 175 Water Street, New York, NY 10038, USA}\\
-       \email{\small song.chen@aig.com}
 \alignauthor Tam T. Nguyen\\
        \affaddr{Institute for Infocomm Research, A*STAR}\\
        \affaddr{\small 1 Fusionopolis Way, \#21-01 Connexis, Singapore 138632}\\
        \email{\small nguyentt@i2r.a-star.edu.sg}
-\alignauthor Xiaocong Zhou\\
-       \affaddr{Tsinghua University}\\
-       \affaddr{\small Haidian District, Beijing, 100084, China}\\
-       \email{\small infinitezxc@gmail.com}
 }
-\additionalauthors{how we can get rid of this ? this section appears with more than 6 authors.}
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+\additionalauthors{Additional authors: Xiaocong Zhou (Tsinghua University,
+email: {\texttt{infinitezxc@gmail.com}}), Song Chen (AIG, email: {\texttt{song.chen@aig.com}}) and Peng Yan
+(NetEase Youdao, email: {\texttt{yanpeng@rd.netease.com}}).}
 
-\date{20 July 2015}
+\date{9 February 2016}
 \maketitle
 \begin{abstract}
 This paper describes the winning solution of KDD Cup 2015. 
 The competition aims to predict dropouts in Massive Open Online Courses (MOOCs). 
 Our approach begins with feature engineering to extract predictive features from activity logs of students and meta data. 
-Then, we train sixty three individual classifiers with different subsets of features and seven algorithms. 
+Then, we train sixty four individual classifiers with different subsets of features and seven algorithms. 
 Lastly, we blend predictions of individual classifiers with the multi-stage ensemble framework. 
 Our solution achieves AUC scores of 0.90918 and 0.90744 on the public and private leaderboards respectively.
 % 7 algorithms: GBDT, NN/DAE+NN, LR, FFM/FM, ET, KRR, Boosting of Linear Regressor, 
@@ -65,9 +88,9 @@ Our solution achieves AUC scores of 0.90918 and 0.90744 on the public and privat
 
 \input{section_intro}
 \input{section_features}
-\input{section_validation}
-\input{section_singleModel}
-\input{section_ensembling}
+\input{section_learning_framework}
+\input{section_final_solution}
+\input{section_discussion}
 \input{section_conclusion}
 
 \bibliographystyle{abbrv}

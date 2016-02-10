@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: IntercontinentalEnsemble.aux
+The style file: abbrv.bst
+Database file #1: sigproc.bib
+Warning--I didn't find a database entry for "kddcup2015_data"
+Warning--I didn't find a database entry for "xgboost"
+You've used 1 entry,
+            2118 wiz_defined-function locations,
+            504 strings with 3821 characters,
+and the built_in function-call counts, 216 in all, are:
+= -- 21
+> -- 7
+< -- 0
++ -- 3
+- -- 2
+* -- 9
+:= -- 49
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 5
+chr.to.int$ -- 0
+cite$ -- 1
+duplicate$ -- 8
+empty$ -- 16
+format.name$ -- 2
+if$ -- 40
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 8
+num.names$ -- 2
+pop$ -- 3
+preamble$ -- 1
+purify$ -- 3
+quote$ -- 0
+skip$ -- 5
+stack$ -- 0
+substring$ -- 5
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 2
+width$ -- 2
+write$ -- 13
+(There were 2 warnings)
