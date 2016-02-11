@@ -81,9 +81,22 @@ S64	& lr\_0.01\_feature6		& F6							& 0.800225	& - \\
 
 We trained 15 stage-I ensemble classifiers with different subsets of CV predictions of 64 single classifiers.
 
+At KDD Cup 2015, GBM outperforms other algorithms.  Our top 8 single models as well as top 2 stage-1 ensemble models are trained with GBM.
+
 We trained 2 stage-II ensemble classifiers with different subsets of CV predictions of 15 stage-I ensemble classifiers.
 
 We trained a stage-III ensemble classifier with CV predictions of 5 classifiers: 1 stage-II ensemble, 3 stage-I ensemble, and 1 individual classifiers.
+
+Performance improvement diminishes as we add more ensemble stages.  The stage-1 ensemble improves the CV AUC score by XXXX from 0.906721 to 0.907688.  The stage-2 ensemble improves the CV AUC score by XXXX to 0.907968.  The stage-3 ensemble improves the CV AUC score by XXXX to 0.908194.\\
+
+We choose subsets of predictions from the previous stage for ensemble model training, 
+\begin{figure*}[!ht]
+  \caption{5-fold CV vs. public leaderboard AUC scores}
+  \centering
+    \includegraphics[width=0.5 \textwidth]{cv_lb}
+\end{figure*}
+
+
 
 \begin{table*}[t]
 \begin{center}

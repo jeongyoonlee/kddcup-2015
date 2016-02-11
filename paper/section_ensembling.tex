@@ -1,5 +1,5 @@
 \subsection{Multi-Stage Ensemble}
-We use the multi-stage ensemble with stacked generalization \cite{wolpert92} to blend predictions of multiple models.  As shown in Figure 2, in each stage, we train ensemble models with 5-fold CV, and use the CV and test predictions of models in the previous stage as inputs.  Then, we pass the CV and test predictions of the ensemble models to the next stage as inputs.\\
+We use the multi-stage ensemble with stacked generalization \cite{wolpert1992stacked, ting1999issues} to blend predictions of multiple models.  As shown in Figure 2, in each stage, we train ensemble models with 5-fold CV, and use the CV and test predictions of models in the previous stage as inputs.  Then, we pass the CV and test predictions of the ensemble models to the next stage as inputs.\\
 
 
 \begin{figure}[!ht]

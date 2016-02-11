@@ -1,8 +1,22 @@
 \begin{thebibliography}{1}
 
-\bibitem{wolpert92}
+\bibitem{kddcup2015_data}
+http://kddcup2015.com/submission-data.html.
+
+\bibitem{perna2013life}
+L.~Perna, A.~Ruby, R.~Boruch, N.~Wang, J.~Scull, C.~Evans, and S.~Ahmad.
+\newblock The life cycle of a million mooc users.
+\newblock In {\em Presentation at the MOOC Research Initiative Conference},
+  2013.
+
+\bibitem{ting1999issues}
+K.~M. Ting and I.~H. Witten.
+\newblock Issues in stacked generalization.
+\newblock {\em J. Artif. Intell. Res.(JAIR)}, 10:271--289, 1999.
+
+\bibitem{wolpert1992stacked}
 D.~H. Wolpert.
 \newblock Stacked generalization.
-\newblock Technical report, LANL, 1992.
+\newblock {\em Neural networks}, 5(2):241--259, 1992.
 
 \end{thebibliography}
