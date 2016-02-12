@@ -1,0 +1,121 @@
+\appendix
+
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+
+\begin{center}
+  \begin{table*}[t]
+    \begin{minipage}{\textwidth}
+    {
+      \small
+      \hfill{}
+      \begin{tabular}{|l|l|}
+      \hline
+      \textbf{No.}&\textbf{Description}\tabularnewline \hline
+      1 & Course\_id encoded by 1-of-N coding \tabularnewline
+      2 & Number of requests by an enrollment\_id \tabularnewline
+      3 & Number of unique object by an enrollment\_id \tabularnewline
+      4 & Number of unique problem object of event by an enrollment\_id \tabularnewline
+      5 & Number of active days by an enrollment\_id \tabularnewline
+      6 & Number of active hours by an enrollment\_id \tabularnewline
+      7 & Time of first access in hours by an enrollment\_id \tabularnewline
+      8 & Time of last access in hours by an enrollment\_id \tabularnewline
+      9 & Number of enrollments by an username \tabularnewline
+      10 & Number of requests by an username \tabularnewline
+      11 & Number of unique objects by an username \tabularnewline
+      12 & Number of unique problem object of event by an username \tabularnewline
+      13 & Number of active days by an username \tabularnewline
+      14 & Number of active hours by an username \tabularnewline
+      15 & Time of first access in hours by an username \tabularnewline
+      16 & Time of last access in hours by an username \tabularnewline
+      17 & Time of first problem access in hours by an username \tabularnewline
+      18 & Time of last problem access in hours by an username \tabularnewline
+      19 & For each course, number of requests by an username \tabularnewline
+      20 & For each course, number of unique object by an username \tabularnewline
+      21 & For each course, number of unique problem object by an username \tabularnewline
+      22 & For each course, number of active days by an username \tabularnewline
+      23 & For each course, number of active hours by an username \tabularnewline
+      24 & For each course, time of first access in hours \tabularnewline
+      25 & For each course, time of last access in hours \tabularnewline
+      26 & Number of enrollment\_ids during 10 days after the end date of course by an username \tabularnewline
+      27 & For each course, number of access logs during 10 days after the end date of course by an username \tabularnewline
+      28 & For each course, number of unique objects during 10 days after the end date of course by an username \tabularnewline
+      29 & For each course, number of unique problem objects during 10 days after the end date of course by an username \tabularnewline
+      30 & For each course, number of active hours during 10 days after the end date of course by an username \tabularnewline
+      31 & For each course, difference between first and last access during 10 days after the end date of course by an username \tabularnewline
+      32 & For each course, time of first access in hours during 10 days after the end date of course by an username \tabularnewline
+      33 & For each course, time of last access in hours during 10 days after the end date of course by an username \tabularnewline
+      34 & For each course, time of first access to an problem object in hours during 10 days after the end date of course by an username \tabularnewline
+      35 & For each course, time of last access to an problem object in hours during 10 days after the end date of course by an username \tabularnewline
+      36 & Number of enrollment\_ids during 1 day after the end date of course by an username \tabularnewline
+      37 & For each course, number of access logs during 1 day after the end date of course by an username \tabularnewline
+      38 & For each course, number of unique objects during 1 day after the end date of course by an username \tabularnewline
+      39 & For each course, number of unique problem objects during 1 day after the end date of course by an username \tabularnewline
+      40 & For each course, number of active hours during 1 day after the end date of course by an username \tabularnewline
+      41 & For each course, difference between first and last access during 1 day after the end date of course by an username \tabularnewline
+      42 & For each course, time of first access in hours during 1 day after the end date of course by an username \tabularnewline
+      43 & For each course, time of last access in hours during 1 day after the end date of course by an username \tabularnewline
+      44 & For each course, time of first access to an problem object in hours during 1 day after the end date of course by an username \tabularnewline
+      45 & For each course, time of last access to an problem object in hours during 1 day after the end date of course by an username \tabularnewline
+      46 & For each days of the course, which date is provided in date.csv, number of unique active courses by an username \tabularnewline
+      \hline
+      \end{tabular}
+    }
+    \hfill{}
+    \caption{List of features generated by Song and Kohei.}
+    \label{tb:skfeature}
+    \end{minipage}
+  \end{table*}
+\end{center}
+
+\begin{center}
+  \begin{table*}[ht]
+    \begin{minipage}{\textwidth}
+    {
+      \small
+      \hfill{}
+      \begin{tabular}{|l|l|}
+      \hline
+      \textbf{No.}&\textbf{Description}\tabularnewline \hline
+1 & act counts \tabularnewline
+2 & hourset length in last 2 days \tabularnewline
+3 & last month \tabularnewline
+4 & max absent days \tabularnewline
+5 & day set length \tabularnewline
+6 & hour set length \tabularnewline
+7 & average hours per day \tabularnewline
+8 & event wiki counts \tabularnewline
+9 & event discussion counts \tabularnewline
+10 & event access counts \tabularnewline
+11 & event video counts \tabularnewline
+12 & event problem counts \tabularnewline
+13 & obj chapter not visited \tabularnewline
+14 & obj chapter visited ratio \tabularnewline
+15 & obj video not visited \tabularnewline
+16 & obj video visited ratio \tabularnewline
+17 & obj problem not visited \tabularnewline
+18 & obj problem visited ratio \tabularnewline
+19 & obj set length \tabularnewline
+20 & total time span \tabularnewline
+21 & days from last act to course end \tabularnewline
+22 & course drop rate \tabularnewline
+23 & number of courses enrolled \tabularnewline
+24 & min days between first visit and next course begin \tabularnewline
+25 & min days between 10 days after last visit and next course begin \tabularnewline
+26 & min days between last visit and next course end \tabularnewline
+27 & min days between previous course end and last visit \tabularnewline
+28 & min days between 10 days after current course end and next course begin \tabularnewline
+29 & min days between 10 days after current course end and next course end \tabularnewline
+30 & min days between current course end and next visit \tabularnewline
+31 & number of active days between last visit and course end \tabularnewline
+32 & number of active days in 10 days after course end \tabularnewline
+33 & number of courses ended after current course end \tabularnewline
+      \hline
+      \end{tabular}
+    }
+    \hfill{}
+    \caption{List of features generated by Peng and Xiaocong.}
+    \label{tb:rwfeature}
+    \end{minipage}
+  \end{table*}
+\end{center}
