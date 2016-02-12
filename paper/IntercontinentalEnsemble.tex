@@ -1,4 +1,8 @@
+
 \documentclass{sig-alternate-05-2015}
+
+\usepackage[ruled, commentsnumbered, longend]{algorithm2e}
+
 \begin{document}
 
 % Copyright
@@ -44,7 +48,7 @@
 %%       \affaddr{\small Hauptplatz 12, 8580 Koeflach, Austria}\\
        \email{\small andreas.toescher@commendo.at}
 \alignauthor Kohei Ozaki\\
-       \affaddr{Recruite Technologies}\\
+       \affaddr{Recruit Technologies}\\
 %%       \affaddr{\small Kamiyacho MT Bldg 18F, 4-3-20 Toranomon, Minato-ku, Tokyo 105-0001, Japan}\\
        \email{ \small kohei\_ozaki@r.recruit.co.jp}
 \and
@@ -74,9 +78,9 @@ email: {\texttt{infinitezxc@gmail.com}}), Song Chen (AIG, email: {\texttt{song.c
 \begin{abstract}
 In this paper, we present the winning solution of KDD Cup 2015, where participants are asked to predict dropouts in a Massive Open Online Course (MOOC) platform.  
 Our approach demonstrates best practices in feature engineering dealing with complex real world data, and pushes forward the state-of-the-art ensemble technique.
-We begin with feature engineering and extracted XXX and YYY features from raw student activity logs, course enrollment, and course material data.  
-Then, we train 64 classifiers with 7 different algorithms and different subsets of extracted features.  Lastly, we blend predictions of classifiers with the multi-stage ensemble framework.  
-Our final solution achieves AUC scores of 0.90918 and 0.90744 on the public and private leaderboards respectively, and puts us to the 1st place out of 821 teams.
+We began with feature engineering and extracted XXX and YYY features from raw student activity logs, course enrollment, and course material data.  
+Then, we trained 64 classifiers with 8 different algorithms and different subsets of extracted features.  Lastly, we blended predictions of classifiers with the multi-stage ensemble framework.  
+Our final solution achieved AUC scores of 0.90918 and 0.90744 on the public and private leaderboards respectively, and put us to the 1st place out of 821 teams.
 % 7 algorithms: GBDT, NN/DAE+NN, LR, FFM/FM, ET, KRR, Boosting of Linear Regressor, 
 \end{abstract}
 
@@ -123,6 +127,7 @@ Our final solution achieves AUC scores of 0.90918 and 0.90744 on the public and 
 
 \input{section_intro}
 \input{section_features}
+\input{section_algorithm}
 \input{section_learning_framework}
 \input{section_final_solution}
 \input{section_conclusion}

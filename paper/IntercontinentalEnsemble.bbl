@@ -1,13 +1,93 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{tcc_duke_competition}
+\texttt{https://www.salford-systems.com/resources/case-studies/119-teradata-center-for-crm-at-duke-competition}.
 
 \bibitem{kddcup2015_data}
-http://kddcup2015.com/submission-data.html.
+\texttt{http://kddcup2015.com/submission-data.html}.
+
+\bibitem{caruana2004ensemble}
+R.~Caruana, A.~Niculescu-Mizil, G.~Crew, and A.~Ksikes.
+\newblock Ensemble selection from libraries of models.
+\newblock In {\em Proceedings of the twenty-first international conference on
+  Machine learning}, page~18. ACM, 2004.
+
+\bibitem{chen2015xgboost}
+T.~Chen and T.~He.
+\newblock xgboost: {eXtreme} gradient boosting.
+\newblock {\em R package version 0.4-2}, 2015.
+
+\bibitem{dahl2013improving}
+G.~E. Dahl, T.~N. Sainath, and G.~E. Hinton.
+\newblock Improving deep neural networks for lvcsr using rectified linear units
+  and dropout.
+\newblock In {\em Acoustics, Speech and Signal Processing (ICASSP), 2013 IEEE
+  International Conference on}, pages 8609--8613. IEEE, 2013.
+
+\bibitem{friedman2003multiple}
+J.~H. Friedman and J.~J. Meulman.
+\newblock Multiple additive regression trees with application in epidemiology.
+\newblock {\em Statistics in medicine}, 22(9):1365--1381, 2003.
+
+\bibitem{guyon2009analysis}
+I.~Guyon, V.~Lemaire, M.~Boull{\'e}, G.~Dror, and D.~Vogel.
+\newblock Analysis of the {KDD} cup 2009: Fast scoring on a large orange
+  customer database.
+\newblock {\em JMLR: Workshop and Conference Proceedings, Volume 7}, pages
+  1--22, 2009.
+
+\bibitem{libffm}
+Y.~Juan, Y.~Zhuang, and W.-S. Chin.
+\newblock \texttt{https://www.csie.ntu.edu.tw/~cjlin/libffm/}.
+
+\bibitem{langford2007vowpal}
+J.~Langford, L.~Li, and A.~Strehl.
+\newblock Vowpal wabbit open source project.
+\newblock Technical report, Technical Report, Yahoo, 2007.
+
+\bibitem{morik2004analysing}
+K.~Morik and H.~K{\"o}pcke.
+\newblock Analysing customer churn in insurance data--a case study.
+\newblock In {\em Knowledge Discovery in Databases: PKDD 2004}, pages 325--336.
+  Springer, 2004.
+
+\bibitem{neslin2006defection}
+S.~A. Neslin, S.~Gupta, W.~Kamakura, J.~Lu, and C.~H. Mason.
+\newblock Defection detection: Measuring and understanding the predictive
+  accuracy of customer churn models.
+\newblock {\em Journal of marketing research}, 43(2):204--211, 2006.
+
+\bibitem{niculescu2009winning}
+A.~Niculescu-Mizil, C.~Perlich, G.~Swirszcz, V.~Sindhwani, Y.~Liu, P.~Melville,
+  D.~Wang, J.~Xiao, J.~Hu, M.~Singh, et~al.
+\newblock Winning the {KDD} cup orange challenge with ensemble selection.
+\newblock {\em JMLR: Workshop and Conference Proceedings, Volume 7}, pages
+  23--34, 2009.
+
+\bibitem{scikit-learn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
 
 \bibitem{perna2013life}
 L.~Perna, A.~Ruby, R.~Boruch, N.~Wang, J.~Scull, C.~Evans, and S.~Ahmad.
-\newblock The life cycle of a million mooc users.
+\newblock The life cycle of a million {MOOC} users.
 \newblock In {\em Presentation at the MOOC Research Initiative Conference},
   2013.
+
+\bibitem{rendle2012factorization}
+S.~Rendle.
+\newblock Factorization machines with {libFM}.
+\newblock {\em ACM Transactions on Intelligent Systems and Technology (TIST)},
+  3(3):57, 2012.
+
+\bibitem{srivastava2014dropout}
+N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov.
+\newblock Dropout: A simple way to prevent neural networks from overfitting.
+\newblock {\em The Journal of Machine Learning Research}, 15(1):1929--1958,
+  2014.
 
 \bibitem{ting1999issues}
 K.~M. Ting and I.~H. Witten.

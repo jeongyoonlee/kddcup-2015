@@ -1,6 +1,14 @@
 \section{Feature Engineering}
 Our team members extracted 7 feature sets, F1 ~ F7 from raw data independently.
- 
+
+\subsection{Data Sets}
+Activity logs of 200,906 enrollments from 112,448 students across 39 courses are provided.
+Each activity is described by 6 fields of the username, course ID, timestamp, source, event, and object. 
+For each object, 3 additional fields of the category, children, and start date are provided.
+The training set consists of 8,157,278 logs from 120,543 enrollments with the target variable indicating if a student dropped out.  
+The test set consists of 5,387,848 logs from 80,363 enrollments.
+The full description of the data sets is available in \cite{kddcup2015_data}.
+
 \subsection{Common Features}
 There are common features across 7 feature sets as follows:
 \begin{itemize}

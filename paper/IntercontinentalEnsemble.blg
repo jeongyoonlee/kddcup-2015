@@ -3,48 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: IntercontinentalEnsemble.aux
 The style file: abbrv.bst
 Database file #1: sigproc.bib
-Warning--entry type for "kddcup2015_data" isn't style-file defined
---line 17 of file sigproc.bib
+Warning--to sort, need author or key in tcc_duke_competition
 Warning--to sort, need author or key in kddcup2015_data
-You've used 4 entries,
+You've used 18 entries,
             2118 wiz_defined-function locations,
-            519 strings with 4236 characters,
-and the built_in function-call counts, 1222 in all, are:
-= -- 112
-> -- 59
-< -- 0
-+ -- 25
-- -- 20
-* -- 86
-:= -- 202
-add.period$ -- 10
-call.type$ -- 4
-change.case$ -- 22
+            601 strings with 7133 characters,
+and the built_in function-call counts, 6898 in all, are:
+= -- 660
+> -- 408
+< -- 5
++ -- 163
+- -- 144
+* -- 512
+:= -- 1137
+add.period$ -- 52
+call.type$ -- 18
+change.case$ -- 123
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 43
-empty$ -- 105
-format.name$ -- 20
-if$ -- 250
+cite$ -- 20
+duplicate$ -- 232
+empty$ -- 489
+format.name$ -- 144
+if$ -- 1430
 int.to.chr$ -- 0
-int.to.str$ -- 4
-missing$ -- 3
-newline$ -- 21
-num.names$ -- 6
-pop$ -- 27
+int.to.str$ -- 18
+missing$ -- 14
+newline$ -- 88
+num.names$ -- 32
+pop$ -- 141
 preamble$ -- 1
-purify$ -- 18
+purify$ -- 107
 quote$ -- 0
-skip$ -- 32
+skip$ -- 177
 stack$ -- 0
-substring$ -- 71
-swap$ -- 5
-text.length$ -- 0
+substring$ -- 384
+swap$ -- 57
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 16
-warning$ -- 1
-while$ -- 10
-width$ -- 5
-write$ -- 39
+type$ -- 72
+warning$ -- 2
+while$ -- 58
+width$ -- 20
+write$ -- 185
 (There were 2 warnings)
