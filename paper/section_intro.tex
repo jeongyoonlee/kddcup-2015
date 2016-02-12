@@ -1,15 +1,11 @@
 \section{Introduction}
 Since 1997, KDD Cup has been one of the most prestigious competitions in knowledge discovery and data mining, where experts around the world from both industry and academia compete with each other with best modeling practices to solve real world challenges in complex data sets.
 
-Massive Open Online Course (MOOC) platforms aim at providing the mass population with open access to quality education.  Although their initial success in a few courses, MOOC platforms have struggled with extremely high dropout rates. Perna et al. reported that the average completion rate is 4\% among 1 million students across 16 Coursera courses offered by the University of Pennsylvania from June 2012 to June 2013 \cite{perna2013life}.  If we identify those who are likely to drop out, we can engage with and help them complete courses successfully.
+The task of KDD Cup 2015 was to predict dropouts of students in a Massive Open Online Course (MOOC) platform.  MOOC platforms aim at providing the mass population with open access to quality education.  Despite of their initial success in some courses, MOOC platforms have struggled with extremely high dropout rates. Perna et al. reported that the average completion rate is 4\% among 1 million students across 16 Coursera courses offered by the University of Pennsylvania from June 2012 to June 2013 \cite{perna2013life}.  If we identify those who are likely to drop out, we can engage with and help them complete courses successfully.  For this task, XuetangX, one of the largest MOOC platforms in China provides the student activity logs, course enrollment, and course material data.
 
-Therefore, KDD Cup 2015 asks participants to predict the likelihood of dropout for students based on their activity logs, course enrollment, and course material data provided by XuetangX, one of the largest MOOC platforms in China.
-Activity logs of 200,906 enrollments from 112,448 students across 39 courses are provided.
-Each activity is described by 6 fields of the username, course ID, timestamp, source, event, and object. 
-For each object, 3 additional fields of the category, children, and start date are provided.
-The training set consists of 8,157,278 logs from 120,543 enrollments with the target variable indicating if a student dropped out.  
-The test set consists of 5,387,848 logs from 80,363 enrollments.
-The full description of the data sets is available in \cite{kddcup2015_data}.
+Student dropout in MOOC can be viewed as customer churn, which is a prevailing problem in publishing, financial services, insurance, electric utilities, health care, banking, Internet, telephone, and cable service industries \cite{neslin2006defection}.  There are previous competitions related to churn prediction.  The task of Teradata Center for CRM (TCC)-Duke Competition was to predict churn with 171 variables provided by a major wireless telecommunication company \cite{neslin2006defection}. The winning solution of TCC-Duke Competition was the ensemble of TreeNet (also known as MART \cite{friedman2003multiple}) models \cite{tcc_duke_competition}.  The task of KDD Cup 2009 was to predict churn, appetency and up-selling with 15,000 variables provided by the French telecommunication company Orange \cite{guyon2009analysis}.  The winning solution of KDD Cup 2009 was the ensemble of single models trained with 10 base algorithms \cite{niculescu2009winning}.  
+
+Both competitions focused on predictive modeling rather than feature engineering by providing preprocessed variables instead of raw data as in KDD Cup 2015. However, in practice, feature engineering is inevitable and crucial in predictive modeling.  For example, Morik and K{\"o}pcke showed significant improvements in churn prediction performance of 4 different algorithms when time intervals for the states of variables are added to original variables \cite{morik2004analysing}.  Furthermore, winning solutions of both competitions used simple ensemble methods:  an average of single model predictions at TCC-Duke Competition \cite{tcc_duke_competition} and ensemble selection \cite{caruana2004ensemble}, which averages single model predictions with stepwise greedy forward selection, at KDD Cup 2009 \cite{niculescu2009winning}.
 
 Our final solution is a joint work from 9 data scientists, distributed around the world.
 The pipeline from raw data to final solution is as follows:
@@ -23,7 +19,7 @@ The pipeline from raw data to final solution is as follows:
   \item Stage-III ensemble (blends stage-II ensemble models)
 \end{itemize}
 
-The rest of the paper is organized as follows. Section 2 describes our feature engineering approach. Section 3 introduces various classification algorithms used to train single classifiers. Section 4 overviews our multi-stage ensemble framework. Section 5 shows our final solution. Section 6 concludes the paper.
+The rest of the paper is organized as follows. Section 2 describes our feature engineering approach. Section 3 introduces various classification algorithms used to train single classifiers. Section 4 presents our multi-stage ensemble framework. Section 5 shows our final solution. Section 6 concludes the paper.
 
 % I think our ensemble framework is different from Otto competition winner's:  Theirs is a stage-II and ours is a stage-III.
 % This approach was published by a winning team of Otto kaggle competition \cite{otto},\cite{triskelion}.
