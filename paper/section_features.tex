@@ -9,12 +9,12 @@ The training set consists of 8,157,278 logs from 120,543 enrollments with the ta
 The test set consists of 5,387,848 logs from 80,363 enrollments.
 The full description of the data sets is available in \cite{kddcup2015_data}. In general, this data can be organized in three dimension space, object, time, and event as shown in Figure~\ref{fig:cube}. Feature engineering tasks were carried out based on these views.
 
-\begin{figure*}[!t]
+\begin{figure}[!t]
 	\caption{Data Cube}
 	\centering
-	\includegraphics[width=1 \textwidth]{cube}
+	\includegraphics[width=0.5 \textwidth]{cube}
 	\label{fig:cube}
-\end{figure*}
+\end{figure}
 
 
 \subsection{Common Features}
@@ -26,12 +26,12 @@ There are common features across 7 feature sets as follows:
 \end{itemize}
 The common features can be generated using cube operations. Figure~\ref{fig:slice} shows an example how weekly and monthly count features are calculated. Firstly, the data is cut using object dimension. In this case, we choose to generate feature for users. Next, we select an event "navigate" in the event space to generate a time series presenting "navigate" event over the time. Finally, drill down operation is used to generate monthly or weekly count features.
 
-\begin{figure*}[!t]
+\begin{figure}[!t]
 	\caption{Slice and Dice}
 	\centering
-	\includegraphics[width=1 \textwidth]{slice_and_dice}
+	\includegraphics[width=0.5 \textwidth]{slice_and_dice}
 	\label{fig:slice}
-\end{figure*}
+\end{figure}
 
 \subsection{F1}
 
