@@ -3,11 +3,11 @@ We selected algorithms that achieve good predictive performance, process large s
 \begin{itemize}
 \setlength\itemsep{0em}
 \item \textbf{Gradient Boosting Machine (GBM)}: We trained GBM classifiers using the Scikit-Learn Python package \cite{scikit-learn} and XGBoost \cite{chen2015xgboost}.  We used various tree structures of 4 to 10 maximum depths and 0.004 to 0.05 shrinkage rates.
-\item \textbf{Neural Networks (NN)}: We trained NN classifiers with the dropout \cite{srivastava2014dropout}, rectified linear unit (ReLU) \cite{dahl2013improving} transfer function and sigmoid activation function.  We used various network architectures of 1 to 3 hidden layers and 16 to 500 hidden units per layer.  We wrote our own C++ NN implementation optimized for sparse data sets.  
+\item \textbf{Neural Networks (NN)}: We trained NN classifiers with the dropout \cite{srivastava2014dropout}, ReLU transfer function and sigmoid activation function.  We used various network architectures of 1 to 3 hidden layers and 16 to 500 hidden units per layer.  We wrote our own C++ NN implementation optimized for sparse data sets.  
 \item \textbf{Factorization Machine (FM)}: We trained FM classifiers using libFM \cite{rendle2012factorization} and libFFM \cite{libffm}.  We used 2-way interaction dimensions of 4 to 20.  We transformed count variables $x$ into $\log{(1 + x)}$.
 \item \textbf{Logistic Regression (LR)}: We trained LR classifiers using the Scikit-Learn Python package \cite{scikit-learn} and Vowpal Wabbit \cite{langford2007vowpal}.  We used the regularization parameter $C=0.01$.  We transformed count variables $x$ into $\log{(1 + x)}$.
 \item \textbf{Kernel Ridge Regression (KRR)}: We trained KRR classifiers using our own C++ implementation.  We used the ridge regression constant $\lambda=1.5e-3$ with the Gaussian kernel.  We transformed count variables $x$ into $\log{(1 + x)}$.
 \item \textbf{Extremely Randomized Trees (ET)}: We trained ET classifiers using the Scikit-Learn Python package \cite{scikit-learn}.
-\item \textbf{Random Forests (RF)}: We trained RF classifiers using the Scikit-Learn Python package \cite{scikit-learn}.  Besides training classifiers, we used RF for feature selection by selecting 
+\item \textbf{Random Forests (RF)}: We trained RF classifiers using the Scikit-Learn Python package \cite{scikit-learn}.  Besides training classifiers, we used RF for feature selection.  We trained an RF model and selected features with high variable importances.
 \item \textbf{K-Nearest Neighbors (KNN)}: We trained KNN classifiers using our own C++ implementation.  We used $k=124$ with the Euclidean distance.  We transformed count variables $x$ into $\log{(1 + x)}$.
 \end{itemize}

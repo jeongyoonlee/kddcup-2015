@@ -188,4 +188,4 @@ The resulting feature dimensionality is $3 \times x$. We extract outputs from al
   \item \textbf{Bottleneck}  \cite{sainath2012auto} : It is an architecture with one layer with significantly fewer neurons such as input-1000-1000-30-1000-1000-input for example, which results in 30 features.
 \end{itemize}
 Both variants are trained with stochastic mini-batch SGD on the original training and test feature set.
-We use the ReLU transfer function in hidden layers and the linear function in the output and bottleneck layers.
+We use the rectified linear unit (ReLU) \cite{dahl2013improving} transfer function in hidden layers and the linear function in the output and bottleneck layers.
