@@ -1,9 +1,9 @@
 \subsection{Multi-Stage Ensemble}
 
 \begin{figure}[!h]
-  \caption{5-fold CV stacked generalization ensemble}
   \centering
     \includegraphics[width=0.5 \textwidth]{cv_ensemble}
+      \caption{5-fold CV stacked generalization ensemble.}
 \end{figure}
 
 We use the multi-stage ensemble with stacked generalization \cite{wolpert1992stacked, ting1999issues} to blend predictions of multiple models.  As shown in Figure 2, in each stage, we train ensemble models with 5-fold CV, and use the CV and test predictions of models in the previous stage as inputs.  Then, we pass the CV and test predictions of the ensemble models to the next stage as inputs.\\

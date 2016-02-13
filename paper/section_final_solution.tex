@@ -17,9 +17,9 @@ Performance improvement diminishes as we add more ensemble stages.  The stage-1 
 
 We choose subsets of predictions from the previous stage for ensemble model training, 
 \begin{figure}[t]
-  \caption{5-fold CV vs. public leaderboard AUC scores}
   \centering
     \includegraphics[width=0.5 \textwidth]{cv_lb}
+      \caption{5-fold CV vs. public leaderboard AUC scores.}
 \end{figure}
 
 A linear combination of the 5 models from table \ref{tb:finalEnsemble} results in train AUC=0.908072 and accuracy=0.887334.
@@ -27,13 +27,14 @@ Which leads to 0.90910 public leaderboard score.
 By adding 39 courseID correction factors train AUC=0.908194 and public score improved to 0.90918.
 
 \begin{figure*}[!t]
-  \caption{End-to-end pipeline for the final solution}
   \centering
     \includegraphics[width=1 \textwidth]{ensemble}
+      \caption{End-to-end pipeline for the final solution}
 \end{figure*}
 
 \begin{table}
 \begin{center}
+	\caption{List of models selected in the stage-3 ensemble.}
 \begin{tabular}{lllll}
 ID 	& Stage 	& Algorithm 	& 5-CV 		& Weight\\ \hline
 S1 	& Single	& GBM		& 0.906721 	& 1.1703 \\
@@ -42,7 +43,7 @@ E8 	& 1 		& NN		& 0.907567	& 0.7871\\
 E18	& 1		& ET			& 0.906207 	& 0.4580\\
 E2	& 2 		& LR			& 0.907968 	& 1.6146\\
 \end{tabular}
-\caption{List of models selected in the stage-3 ensemble.}
+
 \label{tb:finalEnsemble}
 \end{center}
 \end{table}

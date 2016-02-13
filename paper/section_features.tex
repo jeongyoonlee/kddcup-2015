@@ -10,10 +10,10 @@ The test set consists of 5,387,848 logs from 80,363 enrollments.
 The full description of the data sets is available in \cite{kddcup2015_data}. In general, this data can be organized in three dimension space, object, time, and event as shown in Figure~\ref{fig:cube}. Feature engineering tasks were carried out based on these views.
 
 \begin{figure}[!t]
-	\caption{Data Cube}
 	\centering
 	\includegraphics[width=0.5 \textwidth]{cube}
 	\label{fig:cube}
+	\caption{Data cube.}
 \end{figure}
 
 
@@ -28,10 +28,10 @@ There are common features across 7 feature sets, F1 through F7 as follows:
 The common features can be generated using cube operations. Figure~\ref{fig:slice} shows an example how weekly and monthly count features are calculated. First, the data is cut using object dimension. In this case, we choose to generate feature for users. Next, we select an event "navigate" in the event space to generate a time series presenting "navigate" event over the time. Finally, the drill-down operation is used to generate monthly or weekly count features.
 
 \begin{figure}[!t]
-	\caption{Slice and Dice}
 	\centering
 	\includegraphics[width=0.5 \textwidth]{slice_and_dice}
 	\label{fig:slice}
+	\caption{Data slice and dice.}
 \end{figure}
 
 \subsection{F1}
@@ -77,6 +77,7 @@ There are a few entities such as user, course, and object in the training datase
 	\begin{table}[ht]
 		\begin{minipage}{0.5 \textwidth}
 			{
+							\caption{List of count features in F3.}
 				\small
 				\hfill{}
 				\begin{tabular}{|l|l|l|}
@@ -101,7 +102,6 @@ There are a few entities such as user, course, and object in the training datase
 				\end{tabular}
 			}
 			\hfill{}
-			\caption{List of count features in F3.}
 			\label{tb:tnfeature1}
 		\end{minipage}
 	\end{table}
@@ -117,6 +117,7 @@ To capture how often users participate in a certain course, we generated date fe
 	\begin{table}[ht]
 		\begin{minipage}{0.5 \textwidth}
 			{
+							\caption{List of date features in F3.}
 				\small
 				\hfill{}
 				\begin{tabular}{|l|l|l|}
@@ -131,7 +132,6 @@ To capture how often users participate in a certain course, we generated date fe
 				\end{tabular}
 			}
 			\hfill{}
-			\caption{List of date features in F3.}
 			\label{tb:tnfeature3}
 		\end{minipage}
 	\end{table}
