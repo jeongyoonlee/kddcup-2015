@@ -36,6 +36,11 @@ I.~Guyon, V.~Lemaire, M.~Boull{\'e}, G.~Dror, and D.~Vogel.
 \newblock {\em JMLR: Workshop and Conference Proceedings, Volume 7}, pages
   1--22, 2009.
 
+\bibitem{hinton2006reducing}
+G.~E. Hinton and R.~R. Salakhutdinov.
+\newblock Reducing the dimensionality of data with neural networks.
+\newblock {\em Science}, 313(5786):504--507, 2006.
+
 \bibitem{libffm}
 Y.~Juan, Y.~Zhuang, and W.-S. Chin.
 \newblock \texttt{https://www.csie.ntu.edu.tw/~cjlin/libffm/}.
@@ -83,6 +88,12 @@ S.~Rendle.
 \newblock {\em ACM Transactions on Intelligent Systems and Technology (TIST)},
   3(3):57, 2012.
 
+\bibitem{sainath2012auto}
+T.~N. Sainath, B.~Kingsbury, and B.~Ramabhadran.
+\newblock Auto-encoder bottleneck features using deep belief networks.
+\newblock In {\em Acoustics, Speech and Signal Processing (ICASSP), 2012 IEEE
+  International Conference on}, pages 4153--4156. IEEE, 2012.
+
 \bibitem{srivastava2014dropout}
 N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov.
 \newblock Dropout: A simple way to prevent neural networks from overfitting.
@@ -93,6 +104,12 @@ N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov.
 K.~M. Ting and I.~H. Witten.
 \newblock Issues in stacked generalization.
 \newblock {\em J. Artif. Intell. Res.(JAIR)}, 10:271--289, 1999.
+
+\bibitem{vincent2010stacked}
+P.~Vincent, H.~Larochelle, I.~Lajoie, Y.~Bengio, and P.-A. Manzagol.
+\newblock Stacked denoising autoencoders: Learning useful representations in a
+  deep network with a local denoising criterion.
+\newblock {\em The Journal of Machine Learning Research}, 11:3371--3408, 2010.
 
 \bibitem{wolpert1992stacked}
 D.~H. Wolpert.

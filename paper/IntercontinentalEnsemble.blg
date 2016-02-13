@@ -5,45 +5,45 @@ The style file: abbrv.bst
 Database file #1: sigproc.bib
 Warning--to sort, need author or key in tcc_duke_competition
 Warning--to sort, need author or key in kddcup2015_data
-You've used 18 entries,
+You've used 21 entries,
             2118 wiz_defined-function locations,
-            601 strings with 7133 characters,
-and the built_in function-call counts, 6898 in all, are:
-= -- 660
-> -- 408
-< -- 5
-+ -- 163
-- -- 144
-* -- 512
-:= -- 1137
-add.period$ -- 52
-call.type$ -- 18
-change.case$ -- 123
+            620 strings with 7811 characters,
+and the built_in function-call counts, 8204 in all, are:
+= -- 797
+> -- 467
+< -- 6
++ -- 186
+- -- 164
+* -- 608
+:= -- 1340
+add.period$ -- 62
+call.type$ -- 21
+change.case$ -- 142
 chr.to.int$ -- 0
-cite$ -- 20
-duplicate$ -- 232
-empty$ -- 489
-format.name$ -- 144
-if$ -- 1430
+cite$ -- 23
+duplicate$ -- 279
+empty$ -- 588
+format.name$ -- 164
+if$ -- 1710
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 14
-newline$ -- 88
-num.names$ -- 32
-pop$ -- 141
+int.to.str$ -- 21
+missing$ -- 17
+newline$ -- 103
+num.names$ -- 38
+pop$ -- 159
 preamble$ -- 1
-purify$ -- 107
+purify$ -- 123
 quote$ -- 0
-skip$ -- 177
+skip$ -- 213
 stack$ -- 0
-substring$ -- 384
-swap$ -- 57
-text.length$ -- 5
+substring$ -- 495
+swap$ -- 72
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 84
 warning$ -- 2
-while$ -- 58
-width$ -- 20
-write$ -- 185
+while$ -- 71
+width$ -- 23
+write$ -- 219
 (There were 2 warnings)
