@@ -15,9 +15,9 @@ Our final solution achieved AUC scores of 0.90918 and 0.90744 on the public and 
 At KDD Cup 2015, we made some observations as follows:
 \begin{itemize}
 \setlength\itemsep{0em}
-\item As shown in Figure 5, our CV scores were very consistent with public leaderboard scores.  Therefore we used CV scores to determine (1) whether to add more ensemble stage or not - we stopped as we saw no improvement in CV by adding an stage-4 ensemble - and (2) whether to include a model for ensemble or not - if a model scored high on CV but low on the public leaderboard, we excluded it from ensemble.
+\item As shown in Figure 5, our CV scores were very consistent with public leaderboard scores.  Therefore we used CV scores to determine (1) whether to add more ensemble stage or not and (2) whether to include a model for ensemble or not.
 \item GBM outperformed other algorithms.  Our top 8 single models as well as top 2 stage-1 ensemble models are GBM models.  NN and FM were next best algorithms.  LR with stepwise greedy forward selection worked well in ensemble stages.
-\item Biggest performance improvement was from the stage-1 ensemble, and as we added more ensemble stages, we observed diminishing improvements.  The stage-1 ensemble improved the best CV score by 0.00967 from 0.906721 to 0.907688.  The stage-2 ensemble improves the best CV score by 0.00028 to 0.907968.  The stage-3 ensemble improves the best CV score by 0.000226 to 0.908194.  However, it was the improvement from the stage-2 and -3 ensemble that allowed us to finish the 1st.
+\item Biggest performance improvement was from the stage-1 ensemble, and as we added more ensemble stages, we observed diminishing improvements.  The stage-1, -2, and -3 ensembles improved the best CV score by 0.00967, 0.00028, and 0.000226 respectively.  However, it was the improvement from the stage-2 and -3 ensemble that allowed us to finish the 1st.
 \end{itemize}
 
 \begin{figure}[t]

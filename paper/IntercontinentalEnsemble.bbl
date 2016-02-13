@@ -12,6 +12,13 @@ R.~Caruana, A.~Niculescu-Mizil, G.~Crew, and A.~Ksikes.
 \newblock In {\em Proceedings of the twenty-first international conference on
   Machine learning}, page~18. ACM, 2004.
 
+\bibitem{chen2011}
+P.-L. Chen et~al.
+\newblock A linear ensemble of individual and blended models for music rating
+  prediction.
+\newblock {\em JMLR: Workshop and Conference Proceedings, Volume 18}, pages
+  21--60, 2011.
+
 \bibitem{chen2015xgboost}
 T.~Chen and T.~He.
 \newblock xgboost: {eXtreme} gradient boosting.
@@ -63,16 +70,13 @@ S.~A. Neslin, S.~Gupta, W.~Kamakura, J.~Lu, and C.~H. Mason.
 \newblock {\em Journal of marketing research}, 43(2):204--211, 2006.
 
 \bibitem{niculescu2009winning}
-A.~Niculescu-Mizil, C.~Perlich, G.~Swirszcz, V.~Sindhwani, Y.~Liu, P.~Melville,
-  D.~Wang, J.~Xiao, J.~Hu, M.~Singh, et~al.
+A.~Niculescu-Mizil et~al.
 \newblock Winning the {KDD} cup orange challenge with ensemble selection.
 \newblock {\em JMLR: Workshop and Conference Proceedings, Volume 7}, pages
   23--34, 2009.
 
 \bibitem{scikit-learn}
-F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
-  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
-  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+F.~Pedregosa et~al.
 \newblock Scikit-learn: Machine learning in {P}ython.
 \newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
 
@@ -115,5 +119,16 @@ P.~Vincent, H.~Larochelle, I.~Lajoie, Y.~Bengio, and P.-A. Manzagol.
 D.~H. Wolpert.
 \newblock Stacked generalization.
 \newblock {\em Neural networks}, 5(2):241--259, 1992.
+
+\bibitem{wu2012two}
+K.-W. Wu et~al.
+\newblock A two-stage ensemble of diverse models for advertisement ranking in
+  {KDD Cup} 2012.
+\newblock In {\em ACM SIGKDD KDD-Cup WorkShop}, 2012.
+
+\bibitem{yu2010feature}
+H.-F. Yu et~al.
+\newblock Feature engineering and classifier ensemble for kdd cup 2010.
+\newblock In {\em Proceedings of the KDD Cup 2010 Workshop}, pages 1--16, 2010.
 
 \end{thebibliography}

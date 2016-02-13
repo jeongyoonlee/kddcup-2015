@@ -1,15 +1,14 @@
 \subsection{Model Validation}
 
-\begin{figure}[!ht]
+\begin{figure}
   \centering
     \includegraphics[width=0.5 \textwidth]{cv}
     \caption{5-fold CV.}
 \end{figure}
 
+We used stratified 5-fold cross validation (CV) for model validation and ensemble.
+As shown in Figure 3, training data were split into 5 folds while the sample size and dropout rate were preserved across the folds.
 
-We use stratified 5-fold cross validation (CV) for model validation and ensemble.
-Training data are split into five folds while the sample size and dropout rate are preserved across folds.
+For validation, each of single and ensemble models was trained 5 times. Each time, 1 fold was held out and the remaining 5 folds were used for training. Then, predictions for the hold-out folds were combined and formed the model's CV prediction. CV predictions were used as inputs for ensemble model training as well as the model's CV score calculation.
 
-For validation, each of single and ensemble models is trained five times. Each time, one fold is held out and the remaining four folds are used for training. Then, predictions for the hold-out folds are combined and form the model's CV prediction. CV predictions are used as inputs for ensemble model training as well as validation score calculation.
-
-For test, each of single and ensemble models is retrained with whole training data. Then predictions for test data are used as inputs for ensemble prediction as well as for submission.
+For test, each of single and ensemble models was retrained with whole training data. Then predictions for test data were used as inputs for ensemble prediction as well as for submission. 
