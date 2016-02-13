@@ -6,6 +6,9 @@
 \bibitem{kddcup2015_data}
 \texttt{http://kddcup2015.com/submission-data.html}.
 
+\bibitem{libffm}
+\texttt{https://www.csie.ntu.edu.tw/~cjlin/libffm/}.
+
 \bibitem{caruana2004ensemble}
 R.~Caruana, A.~Niculescu-Mizil, G.~Crew, and A.~Ksikes.
 \newblock Ensemble selection from libraries of models.
@@ -26,8 +29,8 @@ T.~Chen and T.~He.
 
 \bibitem{dahl2013improving}
 G.~E. Dahl, T.~N. Sainath, and G.~E. Hinton.
-\newblock Improving deep neural networks for lvcsr using rectified linear units
-  and dropout.
+\newblock Improving deep neural networks for {LVCSR} using rectified linear
+  units and dropout.
 \newblock In {\em Acoustics, Speech and Signal Processing (ICASSP), 2013 IEEE
   International Conference on}, pages 8609--8613. IEEE, 2013.
 
@@ -48,10 +51,6 @@ G.~E. Hinton and R.~R. Salakhutdinov.
 \newblock Reducing the dimensionality of data with neural networks.
 \newblock {\em Science}, 313(5786):504--507, 2006.
 
-\bibitem{libffm}
-Y.~Juan, Y.~Zhuang, and W.-S. Chin.
-\newblock \texttt{https://www.csie.ntu.edu.tw/~cjlin/libffm/}.
-
 \bibitem{langford2007vowpal}
 J.~Langford, L.~Li, and A.~Strehl.
 \newblock Vowpal wabbit open source project.
@@ -61,7 +60,7 @@ J.~Langford, L.~Li, and A.~Strehl.
 K.~Morik and H.~K{\"o}pcke.
 \newblock Analysing customer churn in insurance data--a case study.
 \newblock In {\em Knowledge Discovery in Databases: PKDD 2004}, pages 325--336.
-  Springer, 2004.
+  2004.
 
 \bibitem{neslin2006defection}
 S.~A. Neslin, S.~Gupta, W.~Kamakura, J.~Lu, and C.~H. Mason.
@@ -103,11 +102,6 @@ N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov.
 \newblock Dropout: A simple way to prevent neural networks from overfitting.
 \newblock {\em The Journal of Machine Learning Research}, 15(1):1929--1958,
   2014.
-
-\bibitem{ting1999issues}
-K.~M. Ting and I.~H. Witten.
-\newblock Issues in stacked generalization.
-\newblock {\em J. Artif. Intell. Res.(JAIR)}, 10:271--289, 1999.
 
 \bibitem{vincent2010stacked}
 P.~Vincent, H.~Larochelle, I.~Lajoie, Y.~Bengio, and P.-A. Manzagol.

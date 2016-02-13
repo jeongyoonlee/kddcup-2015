@@ -26,6 +26,6 @@ For test, each of single and ensemble models was retrained with whole training d
       \caption{5-fold CV stacked generalization ensemble.}
 \end{figure}
 
-We used the multi-stage ensemble with stacked generalization \cite{wolpert1992stacked, ting1999issues} to blend predictions of various models.  At each stage, we train ensemble models with 5-fold CV, and use the CV and test predictions of models in the previous stage as inputs.  Then, we pass the CV and test predictions of the ensemble models to the next stage as inputs.  Figure 4 illustrates the process of multi-stage ensemble with 5-fold CV stacked generalization.
+We used the multi-stage ensemble with stacked generalization \cite{wolpert1992stacked} to blend predictions of various models.  At each stage, we train ensemble models with 5-fold CV, and use the CV and test predictions of models in the previous stage as inputs.  Then, we pass the CV and test predictions of the ensemble models to the next stage as inputs.  Figure 4 illustrates the process of multi-stage ensemble with 5-fold CV stacked generalization.
 
 We stopped adding an additional ensemble stage when we saw no improvement in CV.
