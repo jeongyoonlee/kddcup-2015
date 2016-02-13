@@ -8,6 +8,6 @@ We selected algorithms that achieve good predictive performance, process large s
 \item \textbf{Logistic Regression (LR)}: We trained LR classifiers using the Scikit-Learn Python package \cite{scikit-learn} and Vowpal Wabbit \cite{langford2007vowpal}.  We used the regularization parameter $C=0.01$.  We transformed count variables $x$ into $\log{(1 + x)}$.
 \item \textbf{Kernel Ridge Regression (KRR)}: We trained KRR classifiers using our own C++ implementation.  We used the ridge regression constant $\lambda=1.5e-3$ with the Gaussian kernel.  We transformed count variables $x$ into $\log{(1 + x)}$.
 \item \textbf{Extremely Randomized Trees (ET)}: We trained ET classifiers using the Scikit-Learn Python package \cite{scikit-learn}.
-\item \textbf{Random Forests (RF)}: We trained RF classifiers using the Scikit-Learn Python package \cite{scikit-learn}.
+\item \textbf{Random Forests (RF)}: We trained RF classifiers using the Scikit-Learn Python package \cite{scikit-learn}.  Besides training classifiers, we used RF for feature selection by selecting 
 \item \textbf{K-Nearest Neighbors (KNN)}: We trained KNN classifiers using our own C++ implementation.  We used $k=124$ with the Euclidean distance.  We transformed count variables $x$ into $\log{(1 + x)}$.
 \end{itemize}
