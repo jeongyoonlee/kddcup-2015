@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: icdm_intercontinentalensemble.aux
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: icdm_ice.bib
+-- IEEEtran.bst version 1.12 (2007/01/11) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+You've used 24 entries,
+            4024 wiz_defined-function locations,
+            940 strings with 11486 characters,
+and the built_in function-call counts, 17224 in all, are:
+= -- 1365
+> -- 407
+< -- 144
++ -- 226
+- -- 69
+* -- 796
+:= -- 2538
+add.period$ -- 49
+call.type$ -- 24
+change.case$ -- 21
+chr.to.int$ -- 342
+cite$ -- 24
+duplicate$ -- 1266
+empty$ -- 1428
+format.name$ -- 89
+if$ -- 3971
+int.to.chr$ -- 0
+int.to.str$ -- 24
+missing$ -- 220
+newline$ -- 95
+num.names$ -- 22
+pop$ -- 534
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1344
+stack$ -- 0
+substring$ -- 825
+swap$ -- 996
+text.length$ -- 30
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 24
+warning$ -- 0
+while$ -- 80
+width$ -- 26
+write$ -- 237
